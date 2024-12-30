@@ -141,3 +141,136 @@ Array
 
         matrix / 2D array
         -----------------------
+
+            int[] nums = new int[5]
+
+            int[][] data = new int[2][];
+
+
+            Declaration and initialize 2D array
+            ------------------------------------------
+                Declaration
+                    <datatype>[][] arrayName;
+
+                    int[][] data;
+
+                Initialization 
+
+                    int[][] data = {
+                        {2020, 100},
+                        {2021, 433},
+                        {2022, 540},
+                        {2024, 6534}
+                    };
+
+                int[][] data = new int[4][2];
+                data[rowIndex][colIndex]
+                data[0][0] = 2020;
+                data[0][1] = 100;
+
+                data[1][0] = 2021;
+                data[1][1] = 433
+                ///
+
+    Static keyword
+    ------------------------
+        - static variables
+
+
+        - static methods 
+
+
+    final keyword
+    ------------------------
+        - final variables 
+            - value cannot be changed once assigned
+
+
+        - final methods 
+            - a final method cannot be overridden in the subclass
+
+        - final classes
+            - a final class cannot be inherited
+
+
+
+    String in java
+    -----------------------
+
+        String str = "welcome";
+
+        String str = new String("welcome");
+
+        **IMP: in java strings are immutable, their content cannot be changed once created 
+            - The string pool is a special memory region in the heap where string literals are stored
+            - only the strings created using literals are stored in the "string pool"
+                - java uses the concept of "string pool" to ensure memory efficiency by reusing the objects 
+
+        Common operations using String methods
+        ----------------------  
+            - char charAt(int index)
+                    - Returns the char value at the specified index.
+            
+            - int compareTo(String anotherString)
+                    - Compares two strings lexicographically.
+
+            - String	concat(String str)
+                - Concatenates the specified string to the end of this string.
+
+            - boolean	equals(String anObject)
+                - Compares this string to the specified String.
+
+            - int	indexOf(int ch)
+                - Returns the index within this string of the first occurrence of the specified character.
+
+            - boolean	isEmpty()
+                - Returns true if, and only if, length() is 0.
+
+            - int	lastIndexOf(String str)
+                - Returns the index within this string of the last occurrence of the specified substring.
+           
+            - int	lastIndexOf(String str, int fromIndex)
+                    - Returns the index within this string of the last occurrence of the specified substring, searching backward starting at the specified index.
+            
+            - int	length()
+                - Returns the length of this string.
+
+            - boolean	matches(String regex)
+                - Tells whether or not this string matches the given regular expression.
+
+            - String	replace(char oldChar, char newChar)
+                - Returns a string resulting from replacing all occurrences of oldChar in this string with newChar.           
+
+            - boolean	startsWith(String prefix)
+                - Tests if this string starts with the specified prefix.
+
+            - String	substring(int beginIndex)
+                - Returns a string that is a substring of this string.
+
+            - String	toLowerCase()
+                - Converts all of the characters in this String to lower case using the rules of the default locale.
+
+            - String	toUpperCase()
+                - Converts all of the characters in this String to upper case using the rules of the default locale.
+
+            - String	trim()
+                -Returns a string whose value is this string, with any leading and trailing whitespace removed.
+
+
+
+        **IMP:  compareTo() returns a "compare value" in int
+
+                0       - both the objects are same
+
+                >0      - first object is greater than the given object
+
+                <0      - first object is less than the given object
+
+
+                 
+                
+
+
+Udemy Course link
+------------------------
+        https://capgemini.udemy.com/course/data-structures-and-algorithms-deep-dive-using-java/

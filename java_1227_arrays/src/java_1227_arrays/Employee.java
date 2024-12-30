@@ -2,10 +2,18 @@ package java_1227_arrays;
 
 public class Employee {
 	
-	private int id;
+	private int id;			//instance variables
 	private String name;
 	private String city;
 	private double salary;
+	
+	public static String companyName;
+	public static int count;
+	
+	static void showCompanyName() {
+		//used to access static variables
+		System.out.println("Company Name " + companyName);
+	}
 	
 	public int getId() {
 		return id;
