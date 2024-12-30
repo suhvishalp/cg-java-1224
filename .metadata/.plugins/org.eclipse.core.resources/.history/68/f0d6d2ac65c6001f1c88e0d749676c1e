@@ -8,18 +8,16 @@ public class ArrayDemo3 {
 		// TODO Auto-generated method stub
 
 		int number = 1;
-		int a=6, b=5;
+		 
 		
 		switch(number) {
 		
-			case 6-5:
+			case 1:
 				System.out.println("One");
-				
-			default:
-				System.out.println("This is default");
 			
 			case 2:
 				System.out.println("Two");
+				break;
 				
 			case 3:
 				System.out.println("Three");
@@ -33,7 +31,8 @@ public class ArrayDemo3 {
 				System.out.println("Five");
 				break;
 			
-			
+			default:
+				System.out.println("This is default");
 			
 		}
 	}

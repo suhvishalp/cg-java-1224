@@ -1,3 +1,79 @@
+Decision Making statements  in java
+----------------------------------------------
+
+    int a = 10;
+    int b = 30;
+
+
+    if statement 
+
+        if(boolean-expression){
+            statements;
+            statements;
+        }
+
+
+    if-else statement 
+
+        if(boolean-expression){
+            statements;
+            statements;
+        }else{
+            statements;
+            statements;
+        }
+
+    if-else if-else statement 
+
+        if(boolean-expression1){
+            statements;
+            statements;
+        }else if(boolean-expression2){
+            statements;
+            statements;
+        }else if(boolean-expression3){
+            //..
+        }
+        ..
+        .
+        .
+        else {
+
+        }
+
+    switch case statement 
+
+        switch(expression){
+
+            case 'case-expression1':
+                statements;
+                statements;
+                break;
+            
+             case 'case-expression2':
+                statements;
+                statements;
+                break;
+
+             case 'case-expression3':
+                statements;
+                statements;
+                break;
+                ..
+
+                ..
+
+            default:
+                statement;
+        }
+
+
+        **IMP: 
+            - the switch expression must evaluate to either byte, short, int, long, char or string
+                - A switch works with the byte, short, char, and int primitive data types, enumerated types (Enum Types), String, Character, Byte, Short,  Integer 
+            - the switch statement can have a number of possible execution paths
+
+            - 'case-expressions': case expressions must be constant expressions
 
 Array
 ------------------
@@ -59,3 +135,9 @@ Array
 
         - static void	fill(int[] a, int val)
             - Assigns the specified int value to each element of the specified array of ints.
+
+    Multi dimenensional arrays
+    -------------------------------
+
+        matrix / 2D array
+        -----------------------
