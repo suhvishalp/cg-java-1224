@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.13.v20241023-1126" version="17.0.13"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home" version="11.0.16.1"/>
+    <libraryInfo home="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.13.v20241023-1126/jre" version="17.0.13"/>
+</libraryInfos>
