@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>java-1220-strings</name>
+	<name>java-1231-strings-regex-dates</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1735555991287</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

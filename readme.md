@@ -184,6 +184,9 @@ Array
     ------------------------
         - final variables 
             - value cannot be changed once assigned
+            - used to create constants 
+
+                final int MAX = 100;
 
 
         - final methods 
@@ -343,7 +346,67 @@ Array
         --------------------
             -  is used to break a string into tokens
 
-            
+
+        Enums (Enumeration) in Java
+        -----------------------------
+
+                - a special data type that represents a collection of constants
+                - ENUMS are used when you have a fixed set of related values that do not change
+                    i.e. days of week, name of months, states or processes etc.
+
+
+                    - fixed set of constants 
+                    - type-safe 
+                    - enums can have methods, fields and constructor 
+
+
+                    public enum Day {
+                        MONDAY,
+                        TUESDAY,
+                        WEDNESDAY,
+                        THURSDAY,
+                        FRIDAY,
+                        SATURDAY,
+                        SUNDAY
+                    } 
+
+
+            Dates in Java
+            -------------------------
+
+                java.util.Date class
+                ----------------------------
+                    - represents a date and time 
+
+                        Date dt = new Date();       //represents the current date and time
+
+                    - SimpleDateFormat class - used to format or parse a date
+
+
+                Java Date time api
+                -------------------
+                java8: introduced a new package called java.time package, 
+                    which offers a new Date time api
+
+                    - LocalDate
+                    - LocalTime
+                    - LocalDateTime
+                    - Zone
+                    - ...
+                    - ..
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Udemy Course link
 ------------------------
