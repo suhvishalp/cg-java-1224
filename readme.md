@@ -267,10 +267,93 @@ Array
                 <0      - first object is less than the given object
 
 
-                 
+    **IMP: Character class methods
+    -------------------------------------
+        - isDigit()
                 
 
+    Regular Expressions (Regex)
+    ----------------------------
+        - regex is powerful way to match and manipulate text/strings based on "patterns"
+
+            *Syntax of Regex
+            --------------------------
+
+                Regex Patterns
+                ------------------
+                \d   OR [0-9]                      - matches a digit (0-9)
+                \D   OR [^0-9]                     - matches a non-digit character
+                \w   OR [a-zA-Z0-9_]               - matches a word character [a-z A-Z 0-9 _]
+                \W                                 - matches a non-word character
+                \s                                 - matches a whitespace character
+                \S                                 - matches a non-whitespace character 
+                [abc]                              - matches any one character between a, b and c
+                [^abc]                             - matches any character except a, b and c
+                [a-z]                              - matches any character between a to z
+                ^                                  - matches the beginning of the string 
+                $                                  - matches the end of the string
+                \b                                 - word boundary indicates that a pattern is bounded by a     
+                                                        non-word character, i.e. any character except a-z A-Z 0-9 _
+
+
+                Quantifiers
+                -----------------
+                *                                   - matches 0 or more occurences
+                +                                   - matches 1 or more occurences
+                ?                                   - matches 0 or 1 occurence
+                {n}                                 - matches exactly n occurences 
+                {n,m}                               - matches between n and m occurecnes 
+                {n,}                                - matches at least n occurences
+
+                Excaping special characters 
+                ----------------------------------
+                    - use backslash (\\) to match a special character like . , * or ? 
+
+                    \\.
+
+
+                Java API for Regex
+                ---------------------------
+
+                    - Pattern class
+                        - compiles a regex pattern into a 'Pattern' object 
+                        - Pattern.compile(String regex)
+                            
+                    - Matcher class
+                        - matches input strings againts a compiled 'Pattern"
+                        - methods
+
+                            find()          - finds the next subsequence matching the pattern
+                            matches()       - checks if the entire input string matches the pattern
+                            group()         - returns the matched substring 
+                            start(), end()  - get the start and end indices of the match
+
+
+        StringBuilder and StringBuffer
+        -----------------------------------
+            - these objects are used to create mutable strings 
+            - StringBuffer is usually used in multi-threaded application, because it is synchronized 
+
+            - insert()
+            - append()
+            - remove()
+            - replace()
+
+        StringTokenizer 
+        --------------------
+            -  is used to break a string into tokens
+
+            
 
 Udemy Course link
 ------------------------
         https://capgemini.udemy.com/course/data-structures-and-algorithms-deep-dive-using-java/
+
+
+
+
+        56 3 5 23 5 23 107 23 10 120 20 20 403 30 10 43 20 15 10 5 12 16 21 12
+
+
+        40 target
+
