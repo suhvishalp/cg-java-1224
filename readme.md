@@ -391,20 +391,183 @@ Array
                     - LocalDate
                     - LocalTime
                     - LocalDateTime
-                    - Zone
+                    - ZoneDateTime
                     - ...
                     - ..
 
+    classes & Objects 
+    ----------------------
+
+        - Class
+            - bluepint or template for creating objects
+            - it defines properties(fields / data members / instance variables) and 
+                behaviours (methods) that the objects of the class will have 
+
+            - create a class 
+
+                class <<ClassName>> {
+                    
+                    //fields/properties/instance variables / static variables
+                    <<datatype>> varname;
+                    ..
+                    ..
+                    ..
+
+                    //instance methods
+
+                    //static methods 
+
+                    //abstract methods
+
+                    //inner classes
+                }
+
+            - Object:
+            ----------
+                - an instance of a class, created using 'new' keyword 
+
+                Employee emp  = new Employee();
+
+        OOPS Concepts 
+        ---------------
+
+            - Encapsulation
+                - wrapping data and logic into a single unit ('class')
+
+            - Abstraction 
+                - hiding the implementation details and showing only essential features of an objects
+
+            - Inheritance 
+                - allows onc class (subclass) to heriti the properties (feilds) and behaviours (methods) of another class (parent / super class)
+
+            - Polymorphism 
+                - 'many forms'
+                - many forms of the same interface 
+                - allows the methods to behave differently based on the object that calls them
+
+
+
+        Terminologies
+        ----------------------------
+            BO - business objects 
+
+            SO - service objects 
+
+            DAO - data access objects 
+
+            DTO - data transfer objects 
+
+        **IMP: Inner classes / nested classes 
+
+
+
+        - Constructors 
+        ----------------------
+            - a constructor a special method in class, that has same name as it's class, and no return type
+            - it is used to initialize values to the data members
+            - constuctor is called automatically whenever an object is created 
+
+                - default constructor - no parameters, provided by java if no other constructor is defined 
+
+                - no-arg constructor - no parameters
+
+                - parameterized constructor  - accepts arguments to initialize the fields 
+
+
+                - this() constructor
+                    - used to invoke another constructor of the same class
+
+        - Methods Overloading 
+        ---------------------------
+            - a class can have multiple methods with the same name but different parameters 
+                - the method signature must differ in
+                    - number of parameters OR
+                    - type of parameteres Or
+                    - order of parameters 
+                - the decision to invoke the appropriate method is taken at compile time based
+                     on the arguments supplied and the overloaded method definitions.
+                        - this is called compile time polymorphism / static binding  
+
+
+        - Inheritance 
+        --------------------
+            - allows one class to acquire / inherit properties/methods of another class 
+            - a child class / sub class inherits from parent / super class 
+            - the child classes uses  'extends' keyword to inherit from a parent class 
+            **IMP: in java, a class can extend from only 1 class at a time
+
+            - offers reusability, maintainability and extendibility  
+            - creates IS-A relationship between parent and child classes 
+
+            class Person {
+               protected String firstName;
+               protected String lastName;
+               protected Date dob;
+
+                //getter/setter
+            }
+
+            class Employee extends Person {                 class Customer extends Person {
+                private int empId;
+                private double salary;                              String street, city, phoneNumber;
+
+                ..  
+            }                                               }
+
+            Emoployee IS-A Person
+            Customer IS-A Person
+
+            **IMP: 
+                - a variable of type super class can reference to an instance of child class 
+                - by default, the child class construcrtor invokes the no-arg constructor of super class
+
+
+                Person person = new Employee();
+
+                Employee emp = new Employee();
+
+
+                    Product 
+                        |
+                        |-represent a product with name and price
+                        |
+                    Electronics
+                        |
+                        |- extends Product class and adds specific features for electronic items i.e. warranty
+                        |
+                    SmartPhone
+                        |
+                        |-extends Electronics class and adds specific features for smartphones
+                        |-storage, operatingSystem etc.
 
 
 
 
 
+        - Abstract classes 
+
+
+        - Abstract Methods 
+
+
+        - Method Overriding 
+
+
+        - Interfaces
 
 
 
 
+    Imp Terms / Concepts 
+    -----------------------
 
+        - POJO 
+
+        - Java Beans 
+
+        - JPA Entities
+
+        - Spring Beans 
 
 
 
