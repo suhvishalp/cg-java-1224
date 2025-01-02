@@ -545,15 +545,87 @@ Array
 
 
         - Abstract classes 
+            - an abstract class acts just as a superclass, representing all the common charactersticks 
+            - we cannot create object of abstract class
 
+                abstract class Person {
+
+                    //fields / datamembers 
+
+                    //constructors
+
+                    //methods
+                }
 
         - Abstract Methods 
+            - method marked with 'abstract' keyword and without body/definition is called abstract method 
+            - an abstract method must be overriden by it's immediate subclass 
+
+                    public abstract void show();
 
 
-        - Method Overriding 
+        - Method Overriding     
+            - re-defining a superclass method in the subclass
+            - overriding is used to have child-specific implementation of the super class method
+            - rules for method overriding 
+
+                    1. the overridden method signature should be same as superclass  
 
 
         - Interfaces
+
+
+
+
+        abstract class Car {
+
+            //brand, type, model, etc.
+
+            public abstract void move();
+        }
+
+        class TataCar extends Car {
+
+            @Override
+            public void move(){
+                //sysout("this car moves normally");
+            }
+        }
+
+        class BMWCar extends Car{
+
+            @Override
+            public void move(){
+                //sysout("this car moves smothly on rough off-roads");
+            }
+        }
+
+        class MercedesCar extends Car{
+
+            @Override
+            public void move(){
+                //sysout("this car moves smooth and safe on rough off-roads");
+            }
+        }
+
+
+        Car car = null;
+        
+        car = new TataCar();
+        car.move(); //
+
+        car = new MercedesCar();
+        car.move();
+
+
+
+
+
+
+
+
+
+
 
 
 
