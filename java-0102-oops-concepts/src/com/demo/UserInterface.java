@@ -1,8 +1,9 @@
 package com.demo;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import com.demo.bo.Employee;
 import com.demo.bo.SmartPhone;
 
 public class UserInterface {
@@ -20,7 +21,14 @@ public class UserInterface {
 		smartPhone1.displayProductDetails();
 		smartPhone1.displayWarrantyDetails();
 		smartPhone1.displaySmartPhoneDetails();
-
+		
+		int[] arr = {23,23,123,43,34};
+		
+		for(int n : arr) {
+			
+		}
+		
+		
 		
 	}
 

@@ -572,7 +572,146 @@ Array
                     1. the overridden method signature should be same as superclass  
 
 
+
+        - Polymorphism
+        ------------------------
+            - a variable can reference to different types at different time, and based on the type of object 
+                it is referencing the appropriate methods are invoked
+            - allows to implement many forms of the same interface
+
+            - Polymorphism means ‘many forms’.  In OOP, polymorphism means a type can point to different objects    at different times. In other words, the actual object to which a reference type refers, can be determined at runtime. In Java, polymorphism is based on inheritance and overriding.  
+
+
+            - Rule #1: Only inherited methods can be overridden. 
+                Inheritable methods are declared with the following access modifiers: public, protected and default (in the same package). That means private and default methods (in different package) cannot be overridden.’ 
+
+
+            - Rule #2: Final and static methods cannot be overridden. 
+            
+            - Rule #3: The overriding method must have same argument list as the overridden method. 
+
+            - Rule #4: The overriding method must have same return type (or sub type). 
+                     In case of the overriding method’s return type is a sub type of the overridden method’s return type, it is called co-variant return type. 
+           
+           
+                    class A {
+                        public Person show(){
+
+                        }
+                    }
+
+                    class B extends A {
+                        public Employee show(){
+
+                        }
+                    }
+
+            - Rule #5: The overriding method must not have more restrictive access modifier.  
+                For example: if the overridden method is public, you cannot make the overriding method protected, private or default. 
+            
+                    public class A {
+
+                        public void show(){
+
+                        }
+                    }
+
+                    public class B extends A {
+
+                        public void show(){
+
+                        }
+                    }
+
+            - Rule #6: The overriding method must not throw new or broader exceptions. 
+                In other words, the overriding method may throw fewer or narrower checked exceptions, or any unchecked exceptions. 
+
+            - Rule #7: Use the super keyword to invoke the overridden method from a sub class. 
+
+            - Rule #8: Constructors cannot be overridden.
+
+            - Rule #9: Abstract methods must be overridden by the first concrete (non-abstract) sub class. 
+
+            - Rule #10: A static method in a sub class may hide another static one in a super class, and that’s  called method hiding. 
+            
+            - Rule #11: The synchronized modifier has no effect on the rules of overriding. 
+                The synchronized modifier relates to the acquiring and releasing of a monitor object in multi-threaded context, therefore it has totally no effect on the rules of overriding. That means a synchronized method can override a nonsynchronized one and vice versa. 
+            
+            -Rule #12: The strictfp modifier has no effect on the rules of overriding. 
+                That means the presence or absence of the strictfp modifier has absolutely no effect on the rules of overriding: it’s possible that a FP-strict method can override a non-FP-strict one and vice-versa. 
+
+
+
         - Interfaces
+        -------------------
+            - similar to class 
+            - it is considered as a blueprint for a class that defines a contract or set of rules for a class
+            - an interface define set of requirements a class has to implement
+            - interface specifies what a class must do
+
+            - interface contains only public abstract methods and public final variables
+                **IMP: Java8 introduced concept of concrete 'default' and 'static' methods in interfaces
+
+
+            - a class can implement an interface using 'implements' keyword and must override all the abstract methods
+            - **IMP: a class can implement several interfaces at a time
+           
+
+                interface A {
+                    public abstract void methodA();
+                }
+
+                interface X {
+                    public abstract void methodX();
+                }
+
+                class B implements A, X {
+
+                    public void methodA(){
+                        //override the methodA
+                    }
+                    public void methodX(){
+                        //override the methodX
+                    }
+                }
+
+                -  **IMP: an interface can extend from several interfaces 
+
+                        interface A {
+                            //
+                            //
+                        }
+
+                        interface B {
+                            //
+                            //
+                        }
+
+                        interface X extends A, B {
+                            //inherits all the methods of interface A
+                            //inherits all the methods of interface B
+                        }
+
+                -  **IMP: a variable of type interface can reference to an object of it's implementation class 
+
+                    interface TalentedStudent {
+                        public abstract void sing();
+                    }
+
+                    class Student implements TalentedStudent{
+
+                        public void sing(){
+                            //...
+                            //...
+                        }
+                    }
+
+                    Student sayali  = new Student();
+                    TalentedStudent sayali = new Student();
+
+
+
+
 
 
 
@@ -619,6 +758,14 @@ Array
 
 
 
+
+
+                Shape
+                  |
+                  |-abstract calcArea();
+                  |
+        ---------------------
+        Rectangle           Circle
 
 
 
