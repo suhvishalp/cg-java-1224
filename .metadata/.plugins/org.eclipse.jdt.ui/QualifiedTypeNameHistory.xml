@@ -2,6 +2,24 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java_1227_arrays.Employee"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
+    <fullyQualifiedTypeName name="java.util.regex.Matcher"/>
+    <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
+    <fullyQualifiedTypeName name="Day"/>
+    <fullyQualifiedTypeName name="TrafficLight"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="com.demo.bo.Employee"/>
+    <fullyQualifiedTypeName name="com.demo.bo.MathOperations"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="com.demo.bo.Electronics"/>
+    <fullyQualifiedTypeName name="com.demo.bo.SmartPhone"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="com.demo.Rectangle"/>
+    <fullyQualifiedTypeName name="com.demo.Circle"/>
+    <fullyQualifiedTypeName name="com.demo.Payment"/>
+    <fullyQualifiedTypeName name="com.demo.CreditCardPayment"/>
+    <fullyQualifiedTypeName name="com.demo.UPIPayment"/>
+    <fullyQualifiedTypeName name="com.demo.Employee"/>
 </qualifiedTypeNameHistroy>

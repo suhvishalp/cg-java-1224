@@ -711,69 +711,113 @@ Array
 
 
 
+                                abstract class Car {
+
+                                    //brand, type, model, etc.
+
+                                    public abstract void move();
+                                }
+
+                                class TataCar extends Car {
+
+                                    @Override
+                                    public void move(){
+                                        //sysout("this car moves normally");
+                                    }
+                                }
+
+                                class BMWCar extends Car{
+
+                                    @Override
+                                    public void move(){
+                                        //sysout("this car moves smothly on rough off-roads");
+                                    }
+                                }
+
+                                class MercedesCar extends Car{
+
+                                    @Override
+                                    public void move(){
+                                        //sysout("this car moves smooth and safe on rough off-roads");
+                                    }
+                                }
+
+
+                                Car car = null;
+                                
+                                car = new TataCar();
+                                car.move(); //
+
+                                car = new MercedesCar();
+                                car.move();
 
 
 
 
 
-        abstract class Car {
-
-            //brand, type, model, etc.
-
-            public abstract void move();
-        }
-
-        class TataCar extends Car {
-
-            @Override
-            public void move(){
-                //sysout("this car moves normally");
-            }
-        }
-
-        class BMWCar extends Car{
-
-            @Override
-            public void move(){
-                //sysout("this car moves smothly on rough off-roads");
-            }
-        }
-
-        class MercedesCar extends Car{
-
-            @Override
-            public void move(){
-                //sysout("this car moves smooth and safe on rough off-roads");
-            }
-        }
+                                        Shape
+                                        |
+                                        |-abstract calcArea();
+                                        |
+                                ---------------------
+                                Rectangle           Circle
 
 
-        Car car = null;
-        
-        car = new TataCar();
-        car.move(); //
+            - Object class in java 
+            -----------------
+                    - Object class is implicitely the supermost class in java, it is the root class of the java class hierarchy 
 
-        car = new MercedesCar();
-        car.move();
-
-
-
-
-
-                Shape
-                  |
-                  |-abstract calcArea();
-                  |
-        ---------------------
-        Rectangle           Circle
+                                Object 
+                                  |
+                                  |
+        -------------------------------------------------------------------------------------------------
+        System              Scanner             Integer         String          Employee        Product
 
 
+        - methods of the object class 
+        -------------------------------------
+            - boolean equals(Object obj)
+            - String toString()
+            - int hashCode()
+
+            - Object getClass()
+            - Object clone()
+            - void finalize()
+
+            - void wait()
+            - void notify()
+            - void notifyAll()
 
 
+            class Employee{          class Product {
 
 
+            }                          }
 
 
+            - String toString()
+                - returns a string representation of the object
+                - by default, it returns the class name followed by the @ symbol and the object's 
+                        hashcode in hexadecimal
+                - we can override the Object class's toString() method in any custom class i.e. Employee, Product etc. to return a string representation of the object
+
+            - boolean equals(Object obj)
+                - compares two objects for equality
+                - the default implementation checks if two references point to the same memory location
+                - **IMP: we can override the Object class's equals() method to compare two objects
+
+                - **IMP: the equals() contract 
+                ---------------------------------
+                    - The equals() contract in Java is a set of rules that the equals method must follow: 
+                        - Reflexive: For any non-null reference value x, x.equals(x) must return true
+                        
+                        - Symmetric: For any non-null reference values x and y, x.equals(y) must return true if and only if y.equals(x) returns true
+                        
+                        - Transitive: For any non-null reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) must return true
+                        
+                        -Consistent: For any non-null reference values x and y, multiple invocations of x.equals(y) should consistently return the same result
+                        
+                        - Null handling: For any non-null reference value x, x.equals(null) should return false
 
 
 
