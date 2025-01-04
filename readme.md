@@ -548,6 +548,9 @@ Array
             - an abstract class acts just as a superclass, representing all the common charactersticks 
             - we cannot create object of abstract class
 
+            - when you want to provide a common base class /parent class for a group of child classes, and you dont want to instantiate the base class you can use abstract class, 
+                - it provides features like code reusability, extensibility and polymorphism
+
                 abstract class Person {
 
                     //fields / datamembers 
@@ -645,13 +648,15 @@ Array
         - Interfaces
         -------------------
             - similar to class 
+            - interface in java is a reference type
             - it is considered as a blueprint for a class that defines a contract or set of rules for a class
             - an interface define set of requirements a class has to implement
             - interface specifies what a class must do
 
-            - interface contains only public abstract methods and public final variables
-                **IMP: Java8 introduced concept of concrete 'default' and 'static' methods in interfaces
-
+            - interface contains only public abstract methods and public final variables (constants)
+                **IMP: Java8 introduced concept of
+                    - concrete 'default' and 'static' methods in interfaces
+                    - functional interfaces
 
             - a class can implement an interface using 'implements' keyword and must override all the abstract methods
             - **IMP: a class can implement several interfaces at a time
@@ -685,6 +690,10 @@ Array
                         interface B {
                             //
                             //
+                        }
+
+                        interface C extends B, A{
+
                         }
 
                         interface X extends A, B {
@@ -763,6 +772,22 @@ Array
                                 Rectangle           Circle
 
 
+
+            - Difference between interface and abstract classes
+            ------------------------------------------------------------
+                        Interface                                       Abstract classes
+                        can have only abstract, default or              can have abstract and concrete methods
+                        static methods
+
+                        supports multiple inheritance                   doesn't support multiple inheritance
+                        interface A extends B, C
+
+                        all fields are public static or final           fields can have any modifer
+
+                        used to define set of requirements              used to define common base class for 
+                        that a class has to implement                       multiple child classes
+
+            
             - Object class in java 
             -----------------
                     - Object class is implicitely the supermost class in java, it is the root class of the java class hierarchy 
@@ -780,13 +805,13 @@ Array
             - String toString()
             - int hashCode()
 
-            - Object getClass()
             - Object clone()
             - void finalize()
 
-            - void wait()
-            - void notify()
-            - void notifyAll()
+            - final void wait()
+            - final void notify()
+            - final void notifyAll()
+            - final Object getClass()
 
 
             class Employee{          class Product {
@@ -799,7 +824,7 @@ Array
                 - returns a string representation of the object
                 - by default, it returns the class name followed by the @ symbol and the object's 
                         hashcode in hexadecimal
-                - we can override the Object class's toString() method in any custom class i.e. Employee, Product etc. to return a string representation of the object
+                - we can override the Object class's toString() method in any custom class i.e. Employee, Product etc. to return a string representation of the object's state
 
             - boolean equals(Object obj)
                 - compares two objects for equality
@@ -821,6 +846,146 @@ Array
 
 
 
+            - Wrapper classes in java
+            ----------------------------
+                - wrapper classes are used to covert primitive data types (int, double) into objects
+                - they are used to treat the primitive types as objects when required
+
+                - wrapper classes are used
+                    - privitive types cannot be used and only objects are required such as Collections i.e.ArrayList, LinkedList, HashSet etc.
+                    - wrapper classes provide useful utility methods for operations like parsing and converting values
+
+                            Integer.parseInt
+                            Double.parseDouble
+                - Autoboxing and unboxing - automatic conversion between primitives and their corresponding wrapper classes
+
+                Pritive Data types                  Wrapper classes
+
+                    byte                            Byte
+                    short                           Short
+                    int                             Integer
+                    long                            Long
+                    float                           Float
+                    double                          Double
+                    char                            Character
+                    boolean                         Boolean
+
+
+            **IMP: In Java, Arrays are objects and they are used to store group of elements/values
+                    - Array of Strings, Array of Employees, Array of Products, etc.
+                    - problems with array
+                        - fixed size
+
+
+
+            - Java Collection Framework
+            ------------------------------
+                - java.util package provides a set of classes and interfaces to store and manipulate groups of  
+                    objects and perform some operations in specific manner.
+                - they are designed to make data handling efficient and flexible
+
+                - Features:
+                    - dynamic size: unlike arrays, collections can grow and shrink automatically
+                    - built-in-algorithms: include methods for sorting, searching, shuffling etc.
+                    - generics support : ensure type safety and avoid ClassCastException
+
+                - Hierarchy of collection framework 
+
+                        Iterable<E> interface
+                            |- Iterator<E> interate()
+                            |
+                        Collection<E> interface
+                            |
+                            |- boolean add(E e)
+                            |- boolean remove(Object o)
+                            |- void clear()
+                            |- boolean addAll(Collection c)
+                            |- boolean	contains(Object o)
+                            |- int	size()
+        -----------------------------------------------------------------------------
+        List<E> interface                   Set<E> interface                Queue<E> interface 
+         |-void	add(int index, E element)        |                               |                   
+         |-E remove(int index)                   |                               |-PriorityQueue<E>
+         |                                       |                ---------------------------------
+         |                                       |               Deque<E> interface      BlockingQueue<E> interface
+         |                                       |                    |                     |
+    ArrayList<E>                                 |              ArrayDeque<E>            ArrayBlockingQueue<E>
+    LinkedList<E>                                |
+    Vector<E>                               HashSet<E>
+    Stack<E>                                LinkedHashSet<E>
+                                            TreeSet<E>
+
+            - **Collection<E> interface
+                - it is the super interface for all the subinterfaces like List, Set and Queue
+                - The root interface in the collection hierarchy.
+
+
+            - **List<E> interface   
+                - List interface models an index based/ordered collection of objects, which allows duplicate elements     
+                - Ordered collection allowing duplicates  
+
+                - the List implementation classes are:
+                     - ArrayList<E>
+                     - LinkedList<E>
+                     - Vector<E>
+                     - Stack<E>  
+            
+            - **Set<E> interface   
+                - Set interface models unique collection of objects, which doesn't allow duplicate elements     
+                - Unordered collection with unique elements   
+
+                - The Set implementation classes 
+
+                    - HashSet<E> 
+                    - LinkedHashSet<E>   
+                    - TreeSet<E>  
+            
+            - **Queue<E> interface 
+                - Queue interface models a collection of objects based on FIFO approach
+                - follows FIFO - first in first out approach
+
+                - Queue implementation classes are:
+                        - PriorityQueue<E>
+                        - PriorityBlockingQueue<E>
+                        - ArrayDeque
+                        - ArrayBlockingQueue<E>
+                        - ArrayBlockingDeque<E>
+                        
+
+
+
+            - **Map<K, V> interface
+            --------------------------------
+                - models a collection of elements in the form of key-value pairs
+
+                            Map<K, V> interface
+                                |
+                                |
+                                |
+                            HashTable<k,V>
+                            HashMap<k,V>
+                            LinkedHashMap<k,V>
+                            TreeMap<k,V>
+
+
+            - ** Concurrent collection classes
+            ----------------------------------------
+                - ConurrentLinkedQueue
+                - CopyOnWriteArrayList
+                - CopyOnWriteArraySet
+
+
+
+            **IMP: key fators to consider while choosing between collection classes
+            ------------------------------------------------------------------
+                1. Ordering - do you want to maintain the insertion order, natural order, or no specific order?
+                2. Duplicates - do you need to allow duplicates or enforce uniqueness?
+                3. Access pattern - how do you plan to access the elements? by index? by key or through iteration?
+                4. Performance - do you prioritize fast access? insertion? or deletion?
+                5. Memory usage - is memory overhead is concern, particularly for large collection?
+
+
+
     Imp Terms / Concepts 
     -----------------------
 
@@ -839,10 +1004,4 @@ Udemy Course link
         https://capgemini.udemy.com/course/data-structures-and-algorithms-deep-dive-using-java/
 
 
-
-
-        56 3 5 23 5 23 107 23 10 120 20 20 403 30 10 43 20 15 10 5 12 16 21 12
-
-
-        40 target
 
