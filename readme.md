@@ -845,9 +845,153 @@ Array
                         - Null handling: For any non-null reference value x, x.equals(null) should return false
 
 
+            - Association, Composition and Aggregation
+            -------------------------------------------------
+                - the concept is used to represent relationship between classes 
+
+
+                - Association - a relationship between classes, this represents a generic relationship
+
+                    class Customer {                            class Address {
+                                                                    String city;
+                        Address[] addresses;                            String pinCode;
+                                                                    String country;
+                                                                    //
+                                                                    //
+
+                    }                                           }
+
+                    class Supplier {
+
+                        Address address;
+                    }
+
+                - Composition
+                --------------------------  
+                    - is a stronger relationship (stronger form of association) between classes, 
+                        - where, one object owns other object/s
+                        - the dependent object cannot exists without the owner
+
+                        class Car {                     class Engine {
+
+                            Engine engine;                  //..
+                                                            .
+                                                            .
+
+                        }                               }
+
+                        Car car = new Car();
+
+                - Aggregation 
+                -------------------------
+                    - is a weak relationship, form of association where one object contains another object,
+                        - but, both objects may exist independently 
+
+
+                        class Employee {                                    class Project{
+
+                                Project project;
+
+                        }                                                   }
+
+
+                Example:
+                --------------------
+
+                import java.util.ArrayList;
+                import java.util.List;
+
+                class University {
+
+                    Department[] departments = new Department[10];
+                    
+                    void addDepartment(Department department) {
+                        //code to add the given dept inthe departments array
+                    }
+                }
+
+                class Department {
+                    String name;
+                    Professor[] professors = new Professor[10];
+                    
+                    Department(String name) {
+                        this.name = name;
+                    }
+                    
+                    void addProfessor(Professor professor) {
+                        //logic to add the give prof in the professors array
+                    }
+                }
+
+                class Professor {
+                    String name;
+                    
+                    Professor(String name) {
+                        this.name = name;
+                    }
+                }
+
+                public class CombinedExample {
+                    public static void main(String[] args) {
+                        University university = new University();
+                        
+                        Department csDept = new Department("Computer Science");
+                        Department eeDept = new Department("Electrical Engineering");
+                        
+                        Professor prof1 = new Professor("Dr. Smith");
+                        Professor prof2 = new Professor("Dr. Johnson");
+                        
+                        csDept.addProfessor(prof1);
+                        eeDept.addProfessor(prof2);
+                        
+                        university.addDepartment(csDept);
+                        university.addDepartment(eeDept);
+                        
+                        System.out.println("Departments in the university:");
+                        for (Department dept : university.departments) {
+                            System.out.println(dept.name);
+                            for (Professor prof : dept.professors) {
+                                System.out.println("  Professor: " + prof.name);
+                            }
+                        }
+                    }
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             - Wrapper classes in java
             ----------------------------
+                - for each primitive type i.e. int, short, byte etc. there is a corresponding reference type (class)
+                    available which is called 'Wrapper' clas
                 - wrapper classes are used to covert primitive data types (int, double) into objects
                 - they are used to treat the primitive types as objects when required
 
@@ -857,6 +1001,7 @@ Array
 
                             Integer.parseInt
                             Double.parseDouble
+
                 - Autoboxing and unboxing - automatic conversion between primitives and their corresponding wrapper classes
 
                 Pritive Data types                  Wrapper classes
@@ -874,7 +1019,7 @@ Array
             **IMP: In Java, Arrays are objects and they are used to store group of elements/values
                     - Array of Strings, Array of Employees, Array of Products, etc.
                     - problems with array
-                        - fixed size
+                        - fixed size, doesn't have any built in algorighm
 
 
 
