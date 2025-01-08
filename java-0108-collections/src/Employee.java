@@ -55,7 +55,7 @@ public class Employee implements Comparable<Employee>{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(city, empId, name, salary);
+		return Objects.hash(empId, name);
 	}
 
 	@Override

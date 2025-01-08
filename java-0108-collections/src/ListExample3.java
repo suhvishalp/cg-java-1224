@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ListExample3 {
@@ -31,7 +32,15 @@ public class ListExample3 {
 			
 			
 		//sort the list of employees 
-			Collections.sort(list);
+//			Collections.sort(list);
+			
+			
+		//sort the list of employee with salary
+//			Comparator<Employee> salComparator = new EmployeeSalaryComparator();
+//			Collections.sort(list, salComparator );
+			
+		//sort the list of employee with city
+			Collections.sort(list, new EmployeeCityComparator());
 			
 		System.out.println(list);
 		 

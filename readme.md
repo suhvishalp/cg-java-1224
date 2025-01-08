@@ -1238,8 +1238,6 @@ Array
                                     - sorts the elements of the list based on the "natural ordering" of the elements 
                                     - **IMP: Collections.sort() method internally uses the "compareTo()" method to compare the elements 
                                         and sort it
-
-
                                    
                         --**IMP: Comparable<E> interface 
                                 - describes the "compareTo()" method which can be overridden by any class to provide the logic 
@@ -1278,6 +1276,44 @@ Array
 
 
                         --**IMP: Comparator<E> interface 
+                        --------------------------------------
+                            - used to create multiple external comparators 
+
+                                interface Comparator<E> {
+
+                                    int compare(E e1, E e2);
+                                }
+
+                            public class Employee implements Comparable<Employee> {
+
+                                    empid, name, city, salary; 
+
+
+                                    public int compareTo(Employee other){
+                                        //logic for the natural ordering
+                                    }
+                            }
+
+                            public class EmployeeNameComparator implements Comparator<Employee>{
+
+                                    public int compare(Employee e1, Employee e2){
+                                            //sorting logic based on name
+                                    }
+                            }
+
+                            public class EmployeeSalaryComparator implements Comparator<Employee> {
+
+                                    public int compare(Employee e1, Employee e2){
+                                            //sorting logic based on salary
+                                    }
+                            }
+
+                            public class EmployeeCityComparator implements Comparator<Employee> {
+
+                                    public int compare(Employee e1, Employee e2){
+                                            //sorting logic based on city
+                                    }
+                            }
 
 
                  2. LinkedList<E> class 
@@ -1300,15 +1336,71 @@ Array
                 4. Stack<E>
 
 
+         - **Set<E> interface 
+         ============================  
+                - Set interface models "unique collection of objects", which doesn't allow duplicate elements     
+                - Unordered collection with unique elements   
+
+                - The Set implementation classes 
+
+                    - HashSet<E> class
+                        - doesn't allow duplicate elements 
+                        - internally uses 'hashtable' datastructure 
+                        - it doesn't guarantee the order of insertion
+
+                    - LinkedHashSet<E>  class 
+                        - doesn't allow duplicate elements 
+                        - internally uses 'hashtable + double linked list' data structure 
+                        - it maintains order of insertion
+
+                    - TreeSet<E>  class
+                        - doesn't allow duplicate elements 
+                        - internally uses 'balanced tree' data structure 
+                        - it maintains sorted order of elements 
 
 
 
 
+                **IMP: what is natural ordering? what is natural ordering of integers, strings and dates?
+                        how to define natrual ordering for custom objects i.e Employee / Customer / Product to be sorted?
+
+
+                **IMP: int hashCode()
+                ---------------------------
+                    - returns an integer that represents the hashcode of an object 
+                    - it provides a way to hash the object into a unique integer for efficient storage and retrieval in hash-based collection classes
+                    - **IMP: whenever we use any hash-based collection, we must override both the hashCode() and equals() method
+
+                    -  **IMP: the equals() and hashCode() contract
+                    ------------------------------------------------------
+                        - if two objects are equal, then - their hash codes must be same
+                        - if two objects are not equal, their hashcode may or may not be equal
+                        - if hashCode() is overridden, the equals() should also be overridden to ensure consistency
+                      
+
+
+
+                **IMP: how hash-based collections internally work i.e. how hashset internally works 
+
+                    1. it computes the hashCode of the object, using the hashCode() method
+                        - this hashcode determines the bucket in which the element will be stored or needs to be searched
+
+                    2. it checks for the duplicates using it's equals() method, whether the bucket already contains the object or not
+                        - if an equal element if found, the new element will be added 
 
 
 
 
+                Movie Name          Pushpa          RRR         Marco       Smile       Mummy       Daddy       "Jigra"  
+                ------------
 
+
+                    hashCode
+                     6              "pushpa"
+
+                     3              "RRR"
+
+                     5              "Marco"     "smile"     "Mummy"     "Daddy"     "Jigra"
 
 
 
