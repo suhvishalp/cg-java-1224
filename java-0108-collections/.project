@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>java-0104-wrapper-classes</name>
+	<name>java-0108-collections</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1736308941528</id>
+			<id>1736308941529</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

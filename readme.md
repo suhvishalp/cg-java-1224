@@ -814,10 +814,14 @@ Array
             - final Object getClass()
 
 
-            class Employee{          class Product {
+            class Employee{                                     class Product {
 
+                    -we can override object class's methods 
+                        - boolean equals(Object obj)
+                        - String toString()
+                        - int hashCode()
 
-            }                          }
+            }                                                    }
 
 
             - String toString()
@@ -1027,6 +1031,12 @@ Array
             ------------------------------
                 - java.util package provides a set of classes and interfaces to store and manipulate groups of  
                     objects and perform some operations in specific manner.
+                - **IMP: We can create "dynamic collection of objects" and perform some operations 
+                    in specific manner using the classes provided in collection
+                    framework
+                --**IMP: each collection class i.e ArrayList, HashSet, TreeSet, HashMap etc. uses a specific data structure 
+                        internally
+
                 - they are designed to make data handling efficient and flexible
 
                 - Features:
@@ -1066,17 +1076,17 @@ Array
 
 
             - **List<E> interface   
-                - List interface models an index based/ordered collection of objects, which allows duplicate elements     
+                - List interface models an "index based/ordered collection of objects", which allows duplicate elements     
                 - Ordered collection allowing duplicates  
 
                 - the List implementation classes are:
-                     - ArrayList<E>
+                     - ArrayList<E> - 
                      - LinkedList<E>
                      - Vector<E>
                      - Stack<E>  
             
             - **Set<E> interface   
-                - Set interface models unique collection of objects, which doesn't allow duplicate elements     
+                - Set interface models "unique collection of objects", which doesn't allow duplicate elements     
                 - Unordered collection with unique elements   
 
                 - The Set implementation classes 
@@ -1101,7 +1111,7 @@ Array
 
             - **Map<K, V> interface
             --------------------------------
-                - models a collection of elements in the form of key-value pairs
+                - models a "collection of elements in the form of key-value pairs"
 
                             Map<K, V> interface
                                 |
@@ -1128,6 +1138,167 @@ Array
                 3. Access pattern - how do you plan to access the elements? by index? by key or through iteration?
                 4. Performance - do you prioritize fast access? insertion? or deletion?
                 5. Memory usage - is memory overhead is concern, particularly for large collection?
+
+
+        **General concepts about Data Structure?
+        ----------------------
+            - it defines how data is stored / arranged  in memory and how the operations like insert, remove, iterate etc. are performed 
+
+            - Linear Data Structures - elements arranged in sequence
+                - Array - collection of elements, it stores the elements in contigious memory locations 
+                - LinkedList - a sequence of elements (nodes) where each node points to the next node
+                - Stack - follows LIFO approach - last in first out
+                - Queue - follows FIFO approach 
+
+            - non-linear data structures 
+                - tree - a hierachical structure with nodes and edge (Binary tree, balanced tree, binary search tree etc.)
+                - graph - a collection of nodes connected by edges, which can be directed or unidirected
+                - heap - a special tree based structure that uses the heap property 
+
+            - hash-based data structure 
+                - hash table / hash map - uses a hash function to map keys to values
+
+
+
+        ----------------------------------------------------------
+
+                
+
+
+            - **List<E> interface  
+            =========================== 
+                - List interface models an "index based/ordered collection of objects", which allows duplicate elements     
+                - Ordered collection allowing duplicates  
+
+                - the List implementation classes are:
+                     - ArrayList<E> - 
+                     - LinkedList<E>
+                     - Vector<E>
+                     - Stack<E>  
+
+
+                1. ArrayList<E> class 
+                --------------------
+                        - "Resizable Array" data structure internally 
+                        - the initial capacity of Arraylist is 10 
+                        - while inserting/removing elements in ArrayList it shifts all the elements 
+                        - Dynamic Resizing:
+                            - when the number of elements exeeds the current capacity, the size of arraylist is automatically increased 
+                            - during resizing, a new array with larger capacity is created, all the exising elements are copied
+                            - by default, the resizing increases the size by 1.5 times
+
+
+                        - Create an ArrayList 
+
+                            ArrayList list = new ArrayList();
+                            List list = new ArrayList();
+
+                            List<Integer> numsList = new ArrayList<>();
+
+                        - add elements in the list 
+                            - boolean add(E e)
+                            - void add(int index, E e)
+
+                        - remove elements from the list 
+                            - E remove(int index) 
+                            - boolean remove(Object o)
+                                - the remove(Object o) method, it internally uses the 'equals()' method to compare the given object
+                                    with all other objects, if found it gets removed
+
+                        - retrieve the elements from the list 
+                            - E get(int index);
+
+                        - iterate over a list 
+
+                                for(int i=0; i<list.size(); i++){
+                                       sysout( list.get(i));
+                                }
+
+                                for(int value: numsList){
+                                    sysout(value);
+                                }
+
+                                - using iterator also we can iterate over a list 
+
+                                    Iterator<Integer> iterator = list.iterator();
+                                    while(iterator.hasNext()){
+                                        int value = iterator.next();
+                                        sysout(value)
+                                    }
+
+                        - searching an element in the list 
+
+                            - boolean contains(E obj) - internally uses 'equals()' to compare the given element/object with all other elements  in the list , returns true if the match is found, otherwise false;
+                            - int indexOf(E obj) - returns the index number of the first matching occurence of the given object
+                            - int lastIndexOf(E obj)
+
+                        - Sorting a list 
+
+                                Collections.sort(list) 
+                                    - sorts the elements of the list based on the "natural ordering" of the elements 
+                                    - **IMP: Collections.sort() method internally uses the "compareTo()" method to compare the elements 
+                                        and sort it
+
+
+                                   
+                        --**IMP: Comparable<E> interface 
+                                - describes the "compareTo()" method which can be overridden by any class to provide the logic 
+                                    for natural ordering
+
+                                    interface Comparable<E> {
+                                       int compareTo(E e);
+                                    }
+
+                                    public class Employee implements Comparable<Employee> {
+
+                                        //empId, name, city, salary;
+                                        
+                                        public int compareTo(Employee otherEmployee){
+                                            if(this.salary > otherEmployee.getSalary()){
+                                                return 1;
+                                            }else if(this.salary == otherEmployee.getSalary()){
+                                                return 0;
+                                            }else{
+                                                return -1;
+                                            }
+                                        }
+                                    }
+
+                                - the compareTo() method must return a "compare value" as int 
+                                    0   - both objects are same
+                                    >0  - the object is greater than the given object 
+                                    <0  - the object is less than the given object
+
+
+                                    e1      e2      e3      e4      e5
+                                    |       |
+
+                                    e1.compareTo(e2)
+
+
+
+                        --**IMP: Comparator<E> interface 
+
+
+                 2. LinkedList<E> class 
+                -------------------------
+                    - implementation class of List<E> interface
+                    - internally uses 'double linked list' data structure
+                    - no initial capacity
+
+                            List<Integer> list = new LinkedList<>();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

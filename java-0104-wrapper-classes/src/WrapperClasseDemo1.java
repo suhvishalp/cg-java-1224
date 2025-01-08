@@ -29,9 +29,9 @@ public class WrapperClasseDemo1 {
 //		List<Integer> intList = new ArrayList<>();
 //		intList.add(23);
 		
-		Object obj = new String("helloworld");
-		
-		Integer intObj = (Integer)obj;
+//		Object obj = new String("helloworld");
+//		
+//		Integer intObj = (Integer)obj;
 		
 	}
 
