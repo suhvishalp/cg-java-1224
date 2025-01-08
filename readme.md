@@ -1286,7 +1286,18 @@ Array
                     - internally uses 'double linked list' data structure
                     - no initial capacity
 
+                        - Create an LinkedList 
+
                             List<Integer> list = new LinkedList<>();
+
+                        - add elements in the list 
+                        - remove elements from the list 
+                        - retrieve the elements from the list 
+                        - searching an element in the list 
+
+                3. Vector<E>
+
+                4. Stack<E>
 
 
 
