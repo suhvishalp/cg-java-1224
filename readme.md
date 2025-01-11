@@ -1405,6 +1405,94 @@ Array
 
 
 
+
+
+            **Problem statement (Cycle Detection Logic)
+            -----------------------------------------------------
+                - find the minium number of swaps required to sort an array
+
+                input:  [4, 3,  1,  2]          - 1 2 3 4
+                        |   |
+                        3   4               - [4,3]                 [true]
+                        |       |
+                        1       3
+                        |           |
+                            |   |
+                            3   4           - [4,3]
+                            |       |
+                            2       3       - [2,3]
+
+
+                REF:  https://www.geeksforgeeks.org/comparison-among-bubble-sort-selection-sort-and-insertion-sort/
+
+                REF: https://prepinsta.com/hackerrank/coding-questions-and-answers/
+
+                    similar logic like Cycle Detection 
+                        1. Question 1 – Maximum Passengers
+                        2. Question 4 : Network Stream
+                        3. Question 6 – Disk Space Analysis - "sliding window logic" 
+
+
+            **IMP: Logic Patterns
+                1. Cycle Detection logic i.e. find the minium number of swaps required 
+                    - concept: creating pairs of (value and index), sorting / sorting using collection
+
+                2. Divide and conqure - i.e counting array inversions
+                        - concepts - merge sort, counting inversions, recursive division
+
+                3. Greedy algorithm - examine consecutive elements in the sorted array, find minium absolute difference 
+                        - concepts : sorting, greedy algorithm, time complexity
+
+
+            **IMP: Explore yourself
+                - Sorting techniques i.e. selection sort, bubble sort, merge sort, cycle sort 
+
+
+
+            **IMP: wherever you want to provide an implementation of any "functional interface", you can use lambda expression
+
+            **IMP: "functional interface" - is any interface that has only 1 abstract method 
+
+                    interface Comparator<T> {
+
+                        int compare(T obj1, T obj2);
+                    }
+
+                    class EmpSalaryComparator implements Comparator<Employee>{
+
+                        public int compare(Employee e1, Employee e2){
+                            retur Double.compare(e1.getSalary(), e2.getSalary());
+                        }
+                    }
+
+                    Collection.sort(empList, new EmpSalaryComparator());
+        
+                    Collection.sort(empList, (e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary()));
+
+            **IMP: Pre-defined functional interfaces
+                    - Predicate 
+                    - Consumer
+                    - Supplier
+                    - Function
+                    - BiPredicate / BiConsumer / BiSupplier / BiFunction
+                    - Callable 
+                    - Runnable 
+                    - Comparator 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     Imp Terms / Concepts 
     -----------------------
 
