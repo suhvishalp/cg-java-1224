@@ -1403,6 +1403,80 @@ Array
                      5              "Marco"     "smile"     "Mummy"     "Daddy"     "Jigra"
 
 
+            Queue<E> interface and it's implementation classes
+            ------------------------------------------------------
+                - it models a collection of objects stored with FIFO approach 
+
+                                Collection<E> interface 
+                                    |
+                                Queue<E> interface
+                                    |
+                                    |
+                                    |
+                                    |
+                    ------------------------------------------------------------------------------------------
+                    Deque<E> interface              BlockingQueue<E> interface                  PriorityQueue<E> class 
+                        |                                   |                                   LinkedList<E> class
+                        |                                   |
+                    ArrayDeque<E> class             ---------------------------------------------
+                                                    BlockingDeque<E> interface              PriorityBlockingQueue<E> class
+                                                            |                               ArrayBlockingQueue<E> class
+                                                ArrayBlockingDeque<E> class                 DelayQueue class
+                                                                                            LinkedBlockingQueue class
+                                                                                            LinkedTransferQueue class
+
+
+                - Implementation classes of Queue<E> interface 
+
+                        a. General-Purpose Queue Implementations
+                            - PriorityQueue<E> class 
+                            - ArrayDeque<E> class  
+                            - LinkedList<E> class
+
+                        b. Concurrent Queue Implementations
+                            - DelayQueue
+                            - LinkedBlockingQueue 
+                            - ArrayBlockingQueue<E> class
+                            - PriorityBlockingQueue 
+                            - LinkedTransferQueue
+                            - ArrayBlockingDeque
+
+                - Queue<E> interface methods 
+                ------------------------------------------
+
+                        insert                  add(e)              offer(e)
+
+                        remove                  remove()            poll()
+
+                        examine                 peek()
+
+                - Deque<E> interface methods
+                  ------------------------------------------
+
+                        insert                  add(e)              offer(e)
+                                                addFirst(e)         offerFirst(e)
+                                                addLast(e)          offerLast(e)
+
+                        remove                  remove()            poll()
+                                                removeFirst()       pollFirst()
+                                                removeLast()        pollLast()
+
+                        examine                 peek()              
+                                                peekFirst()
+                                                peekLast()
+
+                - BlockingQueue<E> interface - models capacity based queue
+                ------------------------------------------------------------------
+
+                        insert                  add(e)              offer(e)        put(e)
+              
+                        remove                  remove()            poll()          take()
+          
+                        examine                 peek()              
+                
+
+
+                
 
 
 
@@ -1423,7 +1497,7 @@ Array
                             2       3       - [2,3]
 
 
-                REF:  https://www.geeksforgeeks.org/comparison-among-bubble-sort-selection-sort-and-insertion-sort/
+                REF:   https://www.geeksforgeeks.org/comparison-among-bubble-sort-selection-sort-and-insertion-sort/
 
                 REF: https://prepinsta.com/hackerrank/coding-questions-and-answers/
 

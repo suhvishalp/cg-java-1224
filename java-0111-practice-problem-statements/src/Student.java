@@ -3,6 +3,7 @@ public class Student {
 
 	int studId;
 	String name;
+	
 	public int getStudId() {
 		return studId;
 	}
