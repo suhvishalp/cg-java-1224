@@ -8,19 +8,28 @@ public class QueueDemo2 {
 		PriorityQueue<Integer> queue = new PriorityQueue<>();
 		
 		queue.add(34);
-		System.out.println(queue);
+ 
 		
 		queue.add(3);
-		System.out.println(queue);
 		
 		queue.add(45);
-		System.out.println(queue);
 		
 		queue.add(12);
-		System.out.println(queue);
 		
 		queue.add(7);
-		System.out.println(queue);
+
+//		for(int value: queue)
+//			System.out.println(value);
+		
+		for(int i=0; i<queue.size(); i++) {
+			
+			int value = queue.remove();
+			System.out.println(value);
+			
+			i--;
+			
+		}
+		
 	}
 
 }

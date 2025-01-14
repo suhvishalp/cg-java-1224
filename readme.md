@@ -1430,15 +1430,34 @@ Array
 
                         a. General-Purpose Queue Implementations
                             - PriorityQueue<E> class 
-                            - ArrayDeque<E> class  
+                                - stores the elements based on the natural ordering, maintains sorted order of the elements 
+                                 - no capacity restriction
+
+                            - ArrayDeque<E> class
+                                - double ended queue
+                                - no capacity restriction  
+
                             - LinkedList<E> class
+                                - no capacity restriction
 
                         b. Concurrent Queue Implementations
                             - DelayQueue
+                                - * stores the elements until they become eligible for retrivel base on a delay time
+                                - * elements stored in this queue must element "Delayed" interface 
+                                - uses priority queue to order elements based on the delay time
                             - LinkedBlockingQueue 
+                                - capacity based queue
+                                - uses linked list data structure 
+
                             - ArrayBlockingQueue<E> class
+                                - internally uses circular array datastructure 
+
                             - PriorityBlockingQueue 
+                                - backed by a heap data structure for priority based ordering 
+
                             - LinkedTransferQueue
+                                - waits for the consumer to take the elements 
+
                             - ArrayBlockingDeque
 
                 - Queue<E> interface methods 
@@ -1476,7 +1495,116 @@ Array
                 
 
 
-                
+                 - **Map<K, V> interface
+                --------------------------------
+                - models a "collection of elements in the form of key-value pairs"
+                - represents a data structure that maps keys to values 
+                - whenever you want to associate a unique  KEY with a corresponding VALUE
+
+
+                    - **IMP: key value pair storage
+                            - each key is unique, and exactly maps to one value 
+                            - keys are used to access the elements 
+                        - no duplicate keys allowed
+                        - null keys and values 
+                            -  HashTable<k,V>   : does not allow null keys and null value
+                            -   HashMap<k,V>    : allows one null key, values can be null
+                            -  LinkedHashMap<k,V> : allows one null key, values can be null
+                            -  TreeMap<k,V>: doesn't allow null keys, values can be null
+
+
+                            Map<K, V> interface
+                                |
+                                |-> V put(K key, V value)
+                                |-> V get(Object key)
+                                |-> V remove(Object key)
+                                |-> boolean containsKey(Object key)
+                                |-> Set keySet()
+                                |-> Collection values() 
+                                |-> Set entrySet()
+                                |-> int size()
+                                |-> boolean isEmpty()
+                                |
+                            HashTable<k,V>
+                            HashMap<k,V>
+                            LinkedHashMap<k,V>
+                            TreeMap<k,V>
+
+
+            **IMP: Implementation classes of Map interface 
+
+
+                     1. HashTable<k,V>
+                            - legacy implementation class
+                            - synchronized (thread safe)
+                            - does not allow null keys or null values 
+                            - it uses "hash table" data structure 
+
+                     2. HashMap<k,V>
+                            - allows one null key, values can be null
+                            - not synchronized (not thread safe)
+                            - it uses "hash table" data structure 
+                            - doesn't maintain the order of insertion
+                     
+                     3. LinkedHashMap<k,V>
+                            - it uses "hash table + double linked list" data structure
+                            - it maintains the order of insertion by "keys"
+                     
+                     4. TreeMap<k,V>
+                            - maintains sorted order by "keys"
+                            - it uses "red-black tree" data structure 
+
+                    5. ConcurrentHashMap<K,V>
+                        - it is a thread safe version of HashMap
+                        - synchronized 
+
+
+
+                Iterate over a map
+                -------------------------------
+
+                            1. Collection<V> values()
+
+
+                            2. Set<K> keySet()
+
+
+                            3. Set<Map.Entry<K,V>> entrySet()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
