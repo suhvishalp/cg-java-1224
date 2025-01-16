@@ -1572,7 +1572,134 @@ Array
                             3. Set<Map.Entry<K,V>> entrySet()
 
 
+            Functional Interfaces and Lambda Expressions
+            -----------------------------------------------------
 
+                - functional interfaces
+                    - an interface having exactly one abstract method is called 'functional interface' 
+                        **: Note: it may have 'default' or 'static' methods
+
+                        @FunctionalInterface
+                        interface Hello {
+                            //
+                            void sayHello();
+
+                            //static method
+                            //default method
+                        }
+
+
+                        //create a class that implements interface Hello
+                        public class Greet implements Hello {
+
+                            @Override
+                            public void sayHello() {
+                                // TODO Auto-generated method stub
+                                System.out.println("Greeting : Saying Hello...");
+                            }
+
+                        }
+
+                        //create anonymous object that implements the interface Hello 
+                        Hello greeting = new Hello() {
+			
+                            @Override
+                            public void sayHello() {
+                                // TODO Auto-generated method stub
+                                System.out.println("Saying Hello....");
+                            }
+                        };
+		
+		                greeting.sayHello();
+
+                        //using lambda expression to implement the interface Hello 
+
+                        Hello hello = () -> System.out.println("Saying Hello....");
+                         
+                        
+
+
+                - pre-defined functional interface in java 
+
+                        - interface Comparator<T>
+
+                                    int compare(T t1, T t2)
+
+
+                            Comparator<Product> comparator = (p1, p2) -> Double.compare(p1.getPrice(), p2.getPrice());
+
+
+                        - interface Runnable<T>
+
+                        - interface Callable<T>
+
+                        - interface Predicate<T> 
+                            - represents a boolean-valued function with one input
+
+                                    interface Predicate<T> {
+                                        boolean test(T t);
+                                    }
+
+                        - interface Function<T>
+
+                        - interface Supplier<T>
+
+                        - interface Consumer<T>
+
+
+            - Lambda Expressions
+            ------------------------------
+                - it is used to implement a functional interface 
+                - a lambda expression is a concise way to represent and anonymouse object.
+                        
+
+
+
+            Stream API in java
+            ------------------------------
+                - introducted in java 8
+                - it is used to process the collections 
+
+                - every stream has 
+                    - 1 source i.e. any collection, any array, string
+                    - 0 or more intermediate operations 
+                    - 1 terminal operation
+
+
+
+                    - intermediate operations 
+                        - are used to transform the elements of the stream and return a new stream 
+                            with the transformed elements 
+
+                        - .filter(Predicate)
+                        - .map(Function)                    
+                        - .flatMap(Function)
+                        - .distinct()
+                        - .sorted()
+                        - .limit()
+                        - .skip()
+                        - ..
+                        - ..
+
+                    - terminal operations 
+                        - consumes the stream and returns a result or perform side effects 
+                        - each stream must end with a terminal operations
+
+                        - .forEach()
+                        - .collect()
+                        - .reduce()
+                        - .count()
+                        - .toList()
+                        - .toArray()
+                        - .min()
+                        - .max()
+                        - .count()
+
+                        - .findfirst()
+                        - .findAny()
+                        - .anyMatch(Predicate)
+                        - .allMatch(Predicate)
+                        - .noneMatch(Predicate)
 
 
 
