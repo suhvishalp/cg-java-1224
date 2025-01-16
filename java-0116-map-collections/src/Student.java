@@ -1,4 +1,5 @@
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Student {
 
@@ -42,6 +43,16 @@ public class Student {
 		this.marks = marks;
 	}
 	
+	public int getTotalMarks() {
+		
+		return this.marks.values()
+				.stream()
+				.mapToInt(intObj -> intObj.intValue())
+				.sum();
+	}
 	
+	public int intValue() {
+		return 0;
+	}
 	
 }

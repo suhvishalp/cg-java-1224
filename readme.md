@@ -1640,11 +1640,24 @@ Array
                                         boolean test(T t);
                                     }
 
-                        - interface Function<T>
+                        - interface Function<T, R>
+                            - takes one input and produces a single output
+
+                                    interface Function<T, R>{
+                                        R apply(T t);
+                                    }
 
                         - interface Supplier<T>
 
+                                interface Supplier<R>{
+                                    R get();
+                                }
+
                         - interface Consumer<T>
+
+                                interface Consumer<T>{
+                                    void accept(T t);
+                                }
 
 
             - Lambda Expressions
@@ -1672,7 +1685,15 @@ Array
                             with the transformed elements 
 
                         - .filter(Predicate)
-                        - .map(Function)                    
+                            - creates a new stream consisting the values where the given predicate is true
+
+                        - .map(Function) 
+                            - returns a new stream consisting the values returned by the given function                  
+
+                                - mapToInt()
+                                    - returns an intStream object, containing int values 
+                                        returned by the given function
+
                         - .flatMap(Function)
                         - .distinct()
                         - .sorted()
