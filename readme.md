@@ -2039,6 +2039,11 @@ Array
                 - the default exception handler prints the stack trace and terminates the program
 
 
+            - throw is used to explicitly throw an exception in a method or block of code.
+            - throws is used in a method signature to declare the exceptions that the method might throw.
+
+            
+
 
     Imp Terms / Concepts 
     -----------------------
