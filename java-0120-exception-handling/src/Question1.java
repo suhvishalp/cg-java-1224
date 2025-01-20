@@ -11,9 +11,10 @@ public class Question1 {
 
 		String[][] logs = {
 				
-				{"1", "01-01-2023", "01:30", "ERROR", "FAILED"},
+				{"1", "01-01-2023", "16:30", "ERROR", "FAILED"},
+				{"4", "01-01-2023", "01:30", "CRITICAL", "FAILED"},
 				{"2",  "01-01-2023", "14:00", "ERROR", "FAILED"},
-				{"3",  "01-01-2023", "15:00", "INFO", "ESTABLISHED"}
+				{"3",  "01-01-2023", "15:00", "ERROR", "ESTABLISHED"}
 				
 		};
 		
@@ -69,33 +70,27 @@ public class Question1 {
 		
 		extractedlogs.sort((record1, record2) -> {
 			
-			Date time1 = null;
-			Date time2 = null;
+			Date datetime1 = null;
+			Date datetime2 = null;
 			
 			try {
+								//"01-01-2023 : 01:30"				//
+				datetime1 = sdf.parse(record1.get(1) + ":" + record1.get(2) );
+				datetime2 = sdf.parse(record2.get(1) + ":" + record2.get(2));
 				
-				System.out.println("Time1 :" + record1.get(1));
-				System.out.println("Time2 :" + record2.get(1));
-			
-				time1 = sdf.parse(record1.get(1) + ":" + record1.get(2) );
-				time2 = sdf.parse(record2.get(1) + ":" + record2.get(2));
-				
-				System.out.println("time1 : "+ time1);
-				System.out.println("time2 : "+ time2);
-				
-				if(time1.equals(time2)) {
+				if(datetime1.equals(datetime2)) {
 					return 0;
 				}else if(sdf.parse(record1.get(1)).equals(sdf.parse(record2.get(1)))){
 					return sdf.parse(record1.get(2)).compareTo(sdf.parse(record2.get(2)));
 				}else {
-					sdf.parse(record1.get(2)).compareTo(sdf.parse(record2.get(2)));
+					return sdf.parse(record1.get(2)).compareTo(sdf.parse(record2.get(2)));
 				}
 
 			}catch(Exception ex) {
 				
 			}
 			
-			return time1.compareTo(time2);
+			return datetime1.compareTo(datetime2);
 		} );
 		
 		return extractedlogs;
