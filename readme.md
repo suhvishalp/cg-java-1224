@@ -1640,6 +1640,13 @@ Array
                                         boolean test(T t);
                                     }
 
+                            - interface BiPredicate<T, U>
+
+                                    interface BiPredicate<T> {
+                                        boolean test(T t, U u);
+                                    }
+
+
                         - interface Function<T, R>
                             - takes one input and produces a single output
 
@@ -1647,7 +1654,15 @@ Array
                                         R apply(T t);
                                     }
 
-                        - interface Supplier<T>
+                                    interface BiFunction<T, R, U>{
+                                        R apply(T t, U u);
+                                    }
+
+                                    interface ToDoubleFunction<T>{
+                                        double apply(T t);
+                                    }
+
+                        - interface Supplier<R>
 
                                 interface Supplier<R>{
                                     R get();
@@ -1657,6 +1672,10 @@ Array
 
                                 interface Consumer<T>{
                                     void accept(T t);
+                                }
+
+                                interface BiConsumer<T, U u>{
+                                    void accept(T t, U u);
                                 }
 
 
@@ -1706,15 +1725,14 @@ Array
                         - consumes the stream and returns a result or perform side effects 
                         - each stream must end with a terminal operations
 
-                        - .forEach()
-                        - .collect()
+                        - .forEach(Consumer)
+                        - .collect(collector)
                         - .reduce()
                         - .count()
                         - .toList()
                         - .toArray()
                         - .min()
                         - .max()
-                        - .count()
 
                         - .findfirst()
                         - .findAny()
@@ -1723,11 +1741,137 @@ Array
                         - .noneMatch(Predicate)
 
 
+            - terminal operation using .collect() method 
+            ---------------------------------------------------
+            
+                 R collect(Collector) 
+
+                    - The collect() operation accumulates elements in a stream into a container such as a collection. 
+
+                    Collectors  class
+                    -----------------------
+                        - provides pre-defined methods to perform reduction operation
+
+                        - toList()
+
+                        - toSet()
+
+                        - toMap()
+
+                        -  groupingBy
+                                - Returns a Collector implementing a "group by" operation on input elements of type T, grouping elements according to a classification function, and returning the results in a Map.
+
+                                groupingBy(Function)
+
+                                Counting elements in each group:
+                                
+                                Map<String, Long> countByDepartment = people.stream()
+                                        .collect(Collectors.groupingBy(Person::getDepartment,   .counting()));
+
+                                Finding the highest-paid employee in each department:
+                                    Map<String, Optional<Person>> highestPaidByDepartment = people.stream()
+                                        .collect(Collectors.groupingBy(Person::getDepartment, 
+                                                                    Collectors.maxBy(Comparator.comparing(Person::getSalary))));
+
+                        - partitionBy
+                                The partitioningBy collector is similar to groupingBy, but it divides elements into two groups based on a predicate. It produces a Map<Boolean, List<T>>, with keys true and false.
+
+                            Suppose you want to partition people based on whether their salary is above 50,000:
+                                    Map<Boolean, List<Person>> partitionedBySalary = people.stream()
+                                        .collect(Collectors.partitioningBy(person -> person.getSalary() > 50000));
+                                        
+
+                        - counting 
+
+                                long count = people.stream().collect(Collectors.counting());
+
+                        - mapping 
+
+                            - The mapping collector transforms the elements before collecting them, often used as a downstream collector for groupingBy.
+                            - Suppose you want to group people by department and get a list of names in each department:
+
+                            Map<String, List<String>> namesByDepartment = people.stream()
+                                .collect(Collectors.groupingBy(Person::getDepartment, 
+                                                            Collectors.mapping(Person::getName, Collectors.toList())));
+
+
+                        - joining
+                            - The joining collector concatenates strings. It is especially useful for joining values with delimiters.
+
+                            String names = people.stream()
+                                            .map(Person::getName)
+                                            .collect(Collectors.joining(", "));
+
+                        - comparing 
+
+                        - maxBy(comparator)
+
+                        - minBy(comparator)
+
+                        - toMap
+                            - The toMap collector collects elements into a Map and allows you to specify keys and values.
+
+                                Map<String, Person> personMap = people.stream()
+                                     .collect(Collectors.toMap(Person::getName, person -> person));
+
+                        
+
+            
 
 
 
+            Requirements
+            Create Employee Class:
+
+                 Fields: id, name, department, salary, joiningDate
+                Constructor, getters, setters, and toString() methods.
+        
+            
+            Tasks:
+
+            1. Filter: Find all employees in a specific department.
+            2. Sorting:
+                Sort employees by salary (ascending).
+                Sort employees by joining date (descending).
+            3. Mapping: Extract a list of employee names.
+            4. Reduction:
+                Calculate the total salary of all employees.
+                Calculate the average salary of all employees
+                show the employee having min salary
+                show the employee having highest salary
+                calculate the total salary of each department
+                calculate the average salary of each department
+            5. Grouping: Group employees by department.
+            6. Partitioning: Partition employees by salary (above or below a threshold).
 
 
+
+        Date Time API
+        -----------------------
+
+            1. LocalDate 
+                - represents a date without time zone 
+
+            2. LocalTime
+                - represents a time without a date or time zone
+
+            3. LocalDateTime
+                - represents both date and time without time zone 
+
+            4. ZonedDateTime 
+                - represents a date and time with timezone information
+
+            5. Duration
+                - measure the time between two Localtime objects 
+
+            6. Period 
+                - measures the time betweeen two LocalDate objects 
+
+
+            7. DateTimeFormatter
+
+
+                REF: https://www.baeldung.com/java-temporal-adjuster
 
 
 
@@ -1833,13 +1977,66 @@ Array
 
 
 
+            Exception Handling 
+            ---------------------------
+                - a mechanism that helps to manage runtime errors, ensing the application can recover 
+                    or gracefully shuts down without crashing   
+                - managing exceptions using try-catch block to ensure the programs runs gracefully/ensure the program stability 
+                - exception is an error that occurs at runtime
+                    - because of ..
+                        - wrong input 
+                        - wrong logic 
+                        - failure in connection/resources
+
+
+                - problem occurs / exception occurs 
+                - inform that the error has occured / create / throw an object of exception
+                - receive the error information / catching the exception
+                - take corrective actions 
+
+                
+
+
+                - Exception class 
+                    - The 'Exception' class is the super most class in the hierarchy 
+                    - represents all the exceptions that might occur at run time
+                    - represents the conditions that an application might want to catch
+
+                - types of exceptions 
+                     - 1. checked exceptions 
+                            - exceptions that are checked during compile time 
+                            - must be handled with try-catch block or 'declared to be thrown'
+
+                     - 2. unchecked exceptions 
+                            - not necessarily handled with try-catch block
+                            - they are handled by the 'default expcetion handler' in case you don't 
+                                handle with try-catch block
+                            - all the 'RuntimeException' are unchecked exceptions 
+
+
+                        Throwable 
+                            |
+                            |
+        ------------------------------------------------------------
+        Error                                                   Exception
+          |                                                         |
+    -------------------                         ---------------------------------------------------
+    OutOfMemoryError                            RuntimeException                    IOException     SQLException
+    StackOverflowError                              |                                   |
+                                                InputMismatchException              FileNotFoundException
+                                                ArrayIndexOutOfBoundsExeception
+                                                ArithmeticException
+                                                NullPointerException
+                                                NumberFormatException
+                                                
 
 
 
-
-
-
-
+            **IMP: Default Expcetion Handler
+            --------------------------------------------
+                - whenever the error/exception occurs, the jvm creates object of that exception
+                    and throws it to the default exception handler 
+                - the default exception handler prints the stack trace and terminates the program
 
 
 
