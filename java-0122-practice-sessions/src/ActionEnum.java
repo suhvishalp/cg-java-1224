@@ -1,0 +1,5 @@
+
+public enum ActionEnum {
+
+	FEATURE1BUTTON, FEATURE2BUTTON, FEATURE3BUTTON
+}
