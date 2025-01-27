@@ -2042,7 +2042,102 @@ Array
             - throw is used to explicitly throw an exception in a method or block of code.
             - throws is used in a method signature to declare the exceptions that the method might throw.
 
+
+            **IMP: The try-with-resources Statement
+                - The try-with-resources statement is a try statement that declares one or more 
+                    resources. 
+                - it can be used for only those resources (Objects) which are "Closable" or "AutoClosable"
+
+                - A resource is an object that must be closed after the program is finished with it.
+                - The try-with-resources statement ensures that each resource is closed at the end of the statement. 
+
+
             
+        File Handling 
+        ------------------------
+            - java.io Package classes/interfaces to perform input/output operations
+
+            - I/O stream - sequence of bytes
+                - A stream is a sequential and contiguous one-way flow of data
+                - A Stream presents a uniform, easy-to-use, object oriented interface between the program and input/output devices
+
+                1. Byte stream classes 
+
+                            InputStream                      OutputStream
+                                |                               |
+                                |- FileInputStream              |-FileOutputStream
+                                |- BufferedInputStream          |-BufferedOutputStream
+                                |- DataInputStream              |-DataOutputStream
+                                |- ObjectInputStream            |-ObjectOutputStream
+
+                2. Charater stream classes 
+
+                            Reader                           Writer 
+                             |                                  |
+                             |-> InputStreamReader              |-OutputStreamWriter
+                             |      |-FileReader                |   |-FileWriter
+                             |-> BufferedReader                 |-BufferedWriter
+
+
+            **IMP: Serialization and Deserialization ...
+                - Serialization in Java is the process of converting an object's state into a byte stream
+                    - This byte stream can be stored in a file, sent over a network, or saved in a database.
+
+        Multithreading in java 
+        ------------------------------
+            - allows multiple sub-processes that can be executed at the same time 
+            - every java program has by-default 1 thread i.e. Main thread 
+
+            - each thread runs independently and can share same memory
+            
+
+            - Thread
+            -----------------
+                - smallest unit of process that can execute concurrently 
+
+            - Main Thread 
+                - every java program run inside a default main thread, created by JVM
+
+            - Thread State
+
+                    - NEW - when a thread object is creatd but not  yet started 
+
+                    - RUNNABLE - when the thread is ready to run but waiting for CPU 
+                        scheduling 
+
+                    - RUNNING - when a thread is executing it's task
+
+                    - BLOCKED / WAITING - when a thread is waiting for resources
+                            or goes into timed waiting state or waits for another thread's signal
+
+                    - TERMINATED  - when thread completes the execution 
+
+            - Create your own thread 
+
+                    1. extend the 'Thread' class and override the 'run()' method
+
+                                class MyThread extends Thread {
+                                    public void run(){
+                                        //code / logic to be executed inside a thread
+                                    }
+                                }
+
+                                MyThread t1 = new MyThread();
+                                t1.start();
+
+                    2. by implementing 'Runnable' interface
+                            - this class represents logic/code that can be executed 
+                                inside a thread 
+
+                            class MyTask implements Runnable {
+                                    
+                                    public void run(){
+                                        //code / logic to be executed inside a thread
+                                    }                       
+                            }
+                            MyTask task = new MyTask();
+                            Thread t1 = new Thread(task);
+                            t1.start();
 
 
     Imp Terms / Concepts 
