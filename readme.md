@@ -2139,6 +2139,92 @@ Array
                             Thread t1 = new Thread(task);
                             t1.start();
 
+            JDBC - Java Database connectivity 
+            ----------------------------------------
+                - specification/standard for connecting programs written in Java to the  popular databases.
+
+            - types of Drivers
+                1. Type I – (JDBC-ODBC Bridge Driver)
+
+                2. Type II – (Native-API, partly Java driver)
+
+                3. Type III – (JDBC-Net, Pure Java driver)
+
+                4. Type IV – (NATIVE-PROTOCOL, Pure Java driver)
+
+
+            - Driver - interface handles the communications with the database server.
+
+            - DriverManager - DriverManager class manages the drivers and connections
+
+            - Connection - This interface with all methods for communicating to a database.
+
+            - Statement - interface that represents methods to send sql commands to the database
+
+            - ResultSet - represents the data fetched from the database
+
+
+
+
+
+            - steps to communicate with the database 
+                //(optional) 1. load database driver
+			            
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+			
+                //2. create the connection
+
+                 Connection  connection = DriverManager.getConnection("dburl","username","password");
+
+
+                //3. create statement object 
+                statement = connection.createStatement();
+                        // Creates a Statement object for sending SQL statements to the database.
+
+
+                //4. execute the sql statement / send the sql statement to the database 
+
+
+
+            - RDBMS databases 
+                            driver class                    URL PATTERN
+
+            mysql           com.mysql.cj.jdbc.Driver        jdbc:mysql://localhost:3306/dbname
+
+            postgreSQL      org.postgresql.Driver
+
+            Oracle          oracle.jdbc.driver.OracleDriver
+
+            H2 database
+
+            MS SQL Server   com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+            DB2             com.ibm.db2.jcc.DB2Driver
+
+
+
+            Statement Object 
+            -----------------------
+                - Statement object is used to send SQL statements to the database.
+                - methods of the statement object 
+
+                    - int executeUpdate(String query);
+                        - used to perform INSERT, UPDATE AND DELETE operations
+                        - returns an int value representing the number of rows of affected 
+
+                    - ResultSet executeQuery(String query);
+                        - used to perform SELECT operation
+
+                    - boolean execute(String query);
+
+
+            ResultSet Object
+            ---------------------------
+                - resultset object represents the table of data fetched from the db (based on the select query)
+                - it has a cursor, which by default points to the row before first row 
+                - using rs.next() advances the cursor to the row, return true if the row exists
+                - using rs.getXXXX(columnNumber) or rs.getXXXX("colName") we can read the data from the row
+                
 
     Imp Terms / Concepts 
     -----------------------
