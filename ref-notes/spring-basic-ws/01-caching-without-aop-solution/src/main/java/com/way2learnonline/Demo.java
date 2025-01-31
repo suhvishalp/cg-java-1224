@@ -1,0 +1,43 @@
+package com.way2learnonline;
+
+import java.lang.reflect.Method;
+
+
+
+public class Demo {
+
+	public static void main(String[] args) throws Exception {
+		
+		Class<A> c=A.class;
+		
+		A a=c.newInstance();
+		
+		Method m=c.getDeclaredMethod("doSomething", String.class);
+		m.setAccessible(true);
+		
+		Object returnValue=m.invoke(a, "XYZ");
+		
+		System.out.println(returnValue);
+		
+		/*Method[] methods=c.getDeclaredMethods();
+		
+		for(Method method:methods){
+			System.out.println(method.getName());
+			
+		}*/
+		
+	
+		
+		
+		
+		//a.doSomething("Shiva");
+		
+		/*Method [] methods=c.getDeclaredMethods();
+		
+		for(Method method:methods){
+			
+			System.out.println(method.getName());
+		}*/
+		
+	}
+}

@@ -2247,6 +2247,90 @@ Array
 
 
 
+            ORM Tools 
+            -----------------
+                - Object relation mapping 
+                - ORM is a tool that maps java objects(entities) to database tables making it easier to perform CRUD operations without writing SQL queries manually
+                - ORM tools - hibernate, iBatis, TopLink etc.
+
+
+                    class Employee {
+                        int id;
+                        string name;
+                        String city;
+                        int salary;
+                        
+
+                        ..
+                    }
+
+                    employee_table
+                    --------------------
+                    id          name            city            salary
+
+
+            JPA - Java Persistence API
+            ----------------------------------------
+                - specification/standard for the ORM tools, defineing how java objects should be mapped to a relational database table
+
+                JPA Providers 
+                -------------------
+                    - Hibernate JPA
+                    - EclipseLink
+                    - MyBatis
+                    - Open JPA
+
+
+                JPA Terms
+                --------------
+                    - Entity - a java class to be persisted in the db
+
+                    - EntityManager - interface used to perform db operations, it is reponsible to perform DDL, 
+                                DQL, DCL etc. db operations
+                        - EntityManager is reponsible to manage the entities 
+
+                    - EntityManagerFactory - used to create EntityManager object
+
+                    - Persistence Unit - configuration that defines the db connection properties
+
+                    - JPQL - java persistence query language 
+
+                            sql         - SELECT * FROM employee;
+
+                            JPQL        - select from Employee e;
+
+                            sql         - Select name, city from employee;
+
+                            JPQL        - SELECT e.name, e.city FROM Employee e;
+
+                            sql          - SELECT * FROM employee WHERE city='Pune';
+
+                            JPQL        - SELECT e From Employee e where e.city='Pune';
+
+                Entity
+                ---------------
+                    - objects managed by JPA Provider 
+                    - create a Entity class 
+                        - 1. the class has to be annotated with @Entity annotation
+                        - 2. the Entity class must have an identifer field marked with @Id annotation
+                        - 3. the Entity class must have a no-arg contructor 
+
+                            @Entity
+                            public class Employee {
+
+                                @Id
+                                private int empId;
+
+                                private String name;
+                                privaet String city;
+                                ...
+                                ..
+
+                                public Employee(){}
+
+                            }
+
+
     **Imp Terms / Concepts 
     -----------------------
 

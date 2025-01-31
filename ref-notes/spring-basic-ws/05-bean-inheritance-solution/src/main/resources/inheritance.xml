@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="parentDataSource" class="org.apache.commons.dbcp.BasicDataSource" abstract="true">
+		<property name="username" value="way2learnuser"/>
+	</bean>
+
+	<bean id="dataSourceA"  parent="parentDataSource">
+		<property name="url" value="jdbc:mysql:myserver-a/springdb" />		
+	</bean>
+
+
+	<bean id="dataSourceB"  parent="parentDataSource">
+		<property name="url" value="jdbc:mysql:myserver-b/springdb" />		
+	</bean>
+	
+	<bean id="dataSourceC"  parent="parentDataSource">
+		<property name="url" value="jdbc:mysql:myserver-c/springdb" />
+		<property name="username" value="someotheruser"/>
+	</bean>
+
+
+
+</beans>

@@ -25,6 +25,9 @@ public class JDBCTest2 {
 			//3. create statement object 
 			statement = connection.createStatement();
 			
+			connection.setAutoCommit(false);
+			
+			//action 1
 			String updateQuery = "UPDATE employee SET city='Mumbai' WHERE empid=1";
 			
 			//4. execute the sql statement / send the sql statement to the database 
@@ -32,6 +35,12 @@ public class JDBCTest2 {
 			
 			if(count>0)
 				System.out.println("record is updated");
+			
+			//another action 2
+			
+			//one more action 3
+			
+			connection.commit();
 						
 			
 		} catch (ClassNotFoundException e) {
@@ -40,6 +49,12 @@ public class JDBCTest2 {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		} finally {
 			
 				//5. close the connection
