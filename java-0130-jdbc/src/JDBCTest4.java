@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
+
 public class JDBCTest4 {
 
 	public static void main(String[] args) {
@@ -24,24 +26,40 @@ public class JDBCTest4 {
 			connection = DriverManager.getConnection(DB_URL,USERNAME, PASSWORD);
 			
 			//3. create statement object 
-			statement = connection.createStatement();
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			
-			String selectQuery = "SELECT count(*) FROM employee";
+			String selectQuery = "SELECT empid, name, city, salary FROM employee";
 			
 			//4. execute the sql statement / send the sql statement to the database 
 			
 			ResultSet resultSet = statement.executeQuery(selectQuery);
 			
-			while(resultSet.next()) {
-				
-				int empId = resultSet.getInt("empid");
-				String empName = resultSet.getString("name");
-				String city = resultSet.getString("city");
-				int salary = resultSet.getInt("salary");
-				
-				System.out.println(empId + " "+ empName + " " + city + " " + salary);
-				
-			}
+			ResultSetMetaData data = (ResultSetMetaData) resultSet.getMetaData();
+						
+			resultSet.next();
+		
+			System.out.println(resultSet.getInt("empid") + " " + resultSet.getString("name") + " " + resultSet.getString("city") + " " + resultSet.getInt("salary"));
+			
+			resultSet.next();
+			
+			System.out.println(resultSet.getInt("empid") + " " + resultSet.getString("name") + " " + resultSet.getString("city") + " " + resultSet.getInt("salary"));
+			
+			resultSet.updateString(3, "Mumbai");
+			resultSet.updateRow();
+			
+			System.out.println(resultSet.getInt("empid") + " " + resultSet.getString("name") + " " + resultSet.getString("city") + " " + resultSet.getInt("salary"));
+
+			
+//			while(resultSet.next()) {
+//				
+//				int empId = resultSet.getInt("empid");
+//				String empName = resultSet.getString("name");
+//				String city = resultSet.getString("city");
+//				int salary = resultSet.getInt("salary");
+//				
+//				System.out.println(empId + " "+ empName + " " + city + " " + salary);
+//				
+//			}
 			
 			resultSet.close();
 			

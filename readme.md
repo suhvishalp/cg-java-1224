@@ -2226,12 +2226,39 @@ Array
                 - using rs.getXXXX(columnNumber) or rs.getXXXX("colName") we can read the data from the row
                 
 
-    Imp Terms / Concepts 
+                - ResultSetMetadata 
+                    - provide information about the columns of a resultset
+
+                - ResultSet types 
+
+                        ResultSet.TYPE_FORWARD_ONLY
+                        ResultSet.TYPE_SCROLL_INSENSITIVE
+                        ResultSet.TYPE_SCROLL_SENSITIVE
+
+			statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+            PreparedStatement ps = connection.prepareStatement(inserQuery, ResultSet.TYPE_SCROLL_SENSITIVE,     
+                                                                                    ResultSet.CONCUR_UPDATABLE);
+
+                - ResultSet Concurrency 
+
+                    ResultSet.CONCUR_READ_ONLY
+                    ResultSet.CONCUR_UPDATABLE
+
+
+
+    **Imp Terms / Concepts 
     -----------------------
 
         - POJO 
 
         - Java Beans 
+
+        - BO / Model - Business Objects - classes which represent a business entity
+
+        - DAO - Data Access Objects - classes which represent logic to communicate with the database
+
+        - Services - classes used to write all the business logic 
 
         - JPA Entities
 
