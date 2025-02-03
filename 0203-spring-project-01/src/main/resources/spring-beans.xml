@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	<bean id="employeeDAO" name="employeeDAO" class="com.demo.dao.EmployeeDAOImpl">
+
+		<!-- <constructor-arg name="dbUrl"> <value>jdbc:mysql://localhost:3306/mydb</value> 
+			</constructor-arg> <constructor-arg name="username" value="root" type="String"/> 
+			<constructor-arg name="password" value="SuhRoot123" type="String"/> -->
+
+		<property name="dbUrl" value="jdbc:mysql://localhost:3306/mydb" />
+		<property name="username" value="root" />
+		<property name="password" value="SuhRoot123" />
+
+	</bean>
+	
+
+	<bean id="employeeService" name="employeeService" class="com.demo.services.EmployeeServiceImpl">
+<!-- 		<constructor-arg name="empDao" ref="employeeDAO" />-->
+
+		<property name="empDao" ref="employeeDAO" />
+ </bean>
+
+</beans>

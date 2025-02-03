@@ -2331,6 +2331,120 @@ Array
                             }
 
 
+        Spring Framework 
+        ----------------------------
+            - standardises the process of application development 
+            - it is used to develop java-based applications 
+            - The Spring Framework provides a comprehensive programming and configuration model for modern Java-based enterprise applications - on any kind of deployment platform.
+
+            1. Spring Core 
+                - provides fundamental features like DI, IoC container, Bean Life Cycle etc.
+
+
+                - Inversion of Control (IOC)
+                    - IoC is a design principle where the control over object creation / dependency management is tranferred from the programmer to the spring framework
+
+                    - process of delegating the responsibility of creating / managing the objects to the "IOC Container"
+
+                - IOC Container
+                    - IoC container is the core of the spring framework, which initiazes and manages "objects", manages their dependencies, and their lifecycle
+                    - it is responsible to manage the "objects"
+
+                    - spring provides two types of IoC Containers 
+
+                        1. BeanFactory - Basic IoC container 
+                            - simplest, lightweight container, provides basic functionality 
+                            - **IMP: lazily initializes beans (Beans are created only when requested)
+
+                            - implementation classes of BeanFactoty 
+                                - XmlBeanFactory (Note: it is deprecated from Spring verion 5.0)
+
+                        2. ApplicationContext - Advanced IoC container 
+                            - **IMP - eagarly loads all the beans at startup (better performance for web apps)
+
+                            - Implementation classes of ApplicationContext 
+                                - ClassPathXmlApplicationContext
+                                - FileSystemXmlApplicationContext
+                                - AnnotationConfigApplicationContext
+                                - AnnotationConfigWebApplicationContext
+
+                - Dependency Injection
+                    - technique used by IoC container to inject dependencies into objects automatically
+
+                        - constructor-injection
+                        - setter-injection
+                        - field-injection (Annotation based DI)
+
+                - Spring Bean
+                    - A Spring Bean is an object managed by Spring IOC Container 
+                    - it is a reusable component that can be injected into other components 
+
+                - Bean Definitions / Bean Configuration
+                    - configuration of beans to specificy which objects should be created, how should they be initized, how many instances should be created etc etc.
+
+                    - there are 3 ways to define the beans 
+
+                        1. using XML Configuration 
+
+                                <beans>
+
+                                </beans>
+
+
+                        2. using Java Configuration 
+
+
+                        3. using Annotation-based Configuration
+
+
+
+
+                - Bean Life cycle 
+
+                - Bean Scopes 
+
+                        - Singleton 
+
+                        - Prototype 
+
+                        - Application 
+
+                        - Session 
+
+                        - Request\
+
+            2. Spring WEB 
+                - supports web development, RESTful API Development 
+
+                - Spring MVC
+                - Spring WebFlux
+
+            3. Spring AOP
+                 - supports aspect oriented programming 
+
+            4. Spring Data 
+                - provides easy integration with databases using spring data jpa, JDBC, MongoDB etc
+                - Spring Data JPa
+                - Spring Data MongoDB
+                - Spring Data Redis 
+                - Spring Data Elasticsearch
+
+            5. Spring REST 
+
+            6. Spring Cloud 
+                - helps to build microservices and cloud native applications 
+                - Spring Cloud Config
+                - Spring Cloud Gateway
+                - Spring Cloud Netflix
+                - ...
+
+            7. Spring Security 
+                - helps to implement authentication, authorization, protection against security threats 
+
+            8. Spring Boot
+                - simplifies the spring application with features like auto-configuration, embedded servers, production-ready features etc.
+
+
     **Imp Terms / Concepts 
     -----------------------
 

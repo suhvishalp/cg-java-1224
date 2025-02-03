@@ -20,6 +20,8 @@ public class BankServiceTests {
 		
 		 context= new ClassPathXmlApplicationContext("application-config.xml");			
 		 bankService=(BankService) context.getBean("bankService");
+		 
+
 		
 	}	
 

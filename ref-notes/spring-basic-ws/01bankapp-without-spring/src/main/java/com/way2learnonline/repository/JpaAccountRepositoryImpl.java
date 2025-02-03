@@ -16,11 +16,11 @@ import com.way2learnonline.model.*;
 
 public class JpaAccountRepositoryImpl implements AccountRepository {
 	
-	private EntityManager manager;;
+	private DataSource dataSource;	
 	
-	public JpaAccountRepositoryImpl(EntityManager manager) {
+	public JpaAccountRepositoryImpl( DataSource dataSource) {
 		super();
-		this.manager = manager;
+		this.dataSource = dataSource;
 	}
 	
 

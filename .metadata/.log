@@ -5089,3 +5089,129 @@ java.lang.InterruptedException
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2025-01-31 14:52:06.474
 !MESSAGE Classpath changed for project: 01bankapp-without-spring
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 09:23:52.435
+!MESSAGE Classpath changed for project: 01bankapp-without-spring
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-02-03 09:29:47.884
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 09:34:29.086
+!MESSAGE Classpath changed for project: 01bankapp-without-spring
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:13:06.659
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:22:44.738
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:22:44.738
+!MESSAGE Boot project ADDED: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:22:46.020
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:23:43.873
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:23:46.142
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:23:46.451
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:26:05.945
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:26:46.748
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:26:52.793
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:27:15.095
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:27:40.841
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:28:04.247
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:29:19.258
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-02-03 10:39:40.168
+!MESSAGE Timeout waiting for data to generate LS hover
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:43:54.480
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:45:11.831
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 10:47:45.489
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 11:42:34.740
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 11:43:01.285
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 11:43:53.083
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.eclipse.lsp4e 2 0 2025-02-03 11:44:28.714
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 11:44:38.373
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 11:54:39.639
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 11:55:21.930
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 12:13:18.964
+!MESSAGE Classpath changed for project: 0203-spring-project-01
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 12:22:36.574
+!MESSAGE Classpath changed for project: 01xml-di-solution
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 12:22:36.579
+!MESSAGE Boot project ADDED: 01xml-di-solution
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 12:22:37.812
+!MESSAGE Classpath changed for project: 01xml-di-solution
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2025-02-03 12:30:51.946
+!MESSAGE Classpath changed for project: 01xml-di-solution

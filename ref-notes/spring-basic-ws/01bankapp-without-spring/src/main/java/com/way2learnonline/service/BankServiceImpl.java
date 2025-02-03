@@ -19,11 +19,15 @@ public class BankServiceImpl implements BankService {
 	
 
 	public Long transfer(Long fromAccountNumber, Long toAccountNumber, int amount) throws SQLException {
-		
+		//>>---
 		Long transactionId= debit(amount,fromAccountNumber);
 							credit(amount, toAccountNumber);
 		
 		return transactionId;
+		
+		//<<<
+		//>>
+		//<<
 	}
 
 	public Long debit(int amount, Long accountNumber) throws SQLException {
