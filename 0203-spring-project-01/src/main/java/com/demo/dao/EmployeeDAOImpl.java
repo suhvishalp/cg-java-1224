@@ -1,5 +1,8 @@
 package com.demo.dao;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class EmployeeDAOImpl {
 	
 	private String dbUrl;

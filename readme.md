@@ -2387,11 +2387,32 @@ Array
                         1. using XML Configuration 
 
                                 <beans>
-
+                                    <bean id="" name="" class="">
+                                        //<constructor-arg name="" value="" / ref="">
+                                        //<property name="" value="" / ref="">
+                                    </bean>
                                 </beans>
 
 
                         2. using Java Configuration 
+
+                                @Configuration
+                                public class ApplicationConfig {
+                                    
+                                    @Bean
+                                    public EmployeeDAOImpl createEmployeeDAOImpl() {
+                                        //logic to create an object
+                                        //..
+                                        return new EmployeeDAOImpl("url", "username", "password");
+                                    }
+                                    
+                                    @Bean
+                                    public EmployeeServiceImpl createEmployeeServiceImpl(EmployeeDAOImpl empDao) {
+                                        
+                                        return new EmployeeServiceImpl(empDao);
+                                    
+                                    }
+                                }
 
 
                         3. using Annotation-based Configuration
@@ -2404,14 +2425,17 @@ Array
                 - Bean Scopes 
 
                         - Singleton 
+                                - default scope
+                                - only one instance of that class is created
 
                         - Prototype 
+                            - creates new instance everytime we call the getBean() method
 
                         - Application 
 
                         - Session 
 
-                        - Request\
+                        - Request
 
             2. Spring WEB 
                 - supports web development, RESTful API Development 

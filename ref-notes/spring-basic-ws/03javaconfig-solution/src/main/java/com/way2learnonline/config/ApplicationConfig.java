@@ -18,7 +18,6 @@ import com.way2learnonline.service.EmailService;
 import com.way2learnonline.service.EmailServiceImpl;
 
 	@Configuration
-	//@Import(InfrastructureConfig.class)
 	public class ApplicationConfig {
 		
 		@Autowired
@@ -43,6 +42,7 @@ import com.way2learnonline.service.EmailServiceImpl;
 		public RewardRepository rewardRepository(){
 			return  new JdbcRewardRepositoryImpl(dataSource());
 		}
+		
 		@Bean
 		public TransactionRepository transactionRepository(){
 			return new JdbcTransactionRepositoryImpl(dataSource());
