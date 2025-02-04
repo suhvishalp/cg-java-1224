@@ -2417,9 +2417,6 @@ Array
 
                         3. using Annotation-based Configuration
 
-
-
-
                 - Bean Life cycle 
 
                 - Bean Scopes 
@@ -2467,6 +2464,12 @@ Array
 
             8. Spring Boot
                 - simplifies the spring application with features like auto-configuration, embedded servers, production-ready features etc.
+
+
+
+            Spring Boot 
+            ------------------
+            
 
 
     **Imp Terms / Concepts 

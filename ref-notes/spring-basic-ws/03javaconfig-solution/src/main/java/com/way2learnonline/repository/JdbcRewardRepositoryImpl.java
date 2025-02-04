@@ -7,15 +7,19 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.way2learnonline.model.Reward;
 
 
-
+@Component
 public class JdbcRewardRepositoryImpl implements RewardRepository {
 	
+	@Autowired
 	private DataSource dataSource;
 	
-	
+	public JdbcRewardRepositoryImpl() {}
 
 	public JdbcRewardRepositoryImpl(DataSource dataSource) {
 		super();
