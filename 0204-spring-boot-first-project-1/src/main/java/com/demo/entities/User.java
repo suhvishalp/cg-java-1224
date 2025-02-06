@@ -1,20 +1,62 @@
 package com.demo.entities;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "user")
 public class User {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "name", nullable = false)
 	private String name;
+	
+	@Column(name = "email", nullable = false, unique = true)
 	private String email;
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Profile profile;
+	
 	
 	public User() {
 		super();
 	}
+	
+	
+	
+
+	public Profile getProfile() {
+		return profile;
+	}
+
+
+
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
+
+
+
+	public User(String name, String email) {
+		super();
+		this.name = name;
+		this.email = email;
+	}
+
+
 
 	public User(Long id, String name, String email) {
 		super();
@@ -46,4 +88,14 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", profile=" + profile + "]";
+	}
+
+	
 }

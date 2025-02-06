@@ -2522,7 +2522,7 @@ Array
 
                     - Spring Data JPA
                         - it is a wrapper around JPA and JPA Provider
-                        - it provides "Repository Pattern" which is higher level abstraction for working with the databse 
+                        - it provides "Repository Pattern" which is higher level abstraction for working with the database 
                         - instead of managing entity persistence, query execution, transaction management at your own, you can simply use the "Repository Pattern" which simplifies the 
                         DB operations
 
@@ -2564,6 +2564,119 @@ Array
                                 |- ListT> findAll(Example<S> example)
                                 |- List<T> findAll(Example<S> example, Sort sort)
                                 |
+
+            1.  Create custom queries using @Query anotation
+                - @Query annotation is used to define custom JPQL queries/ custom sql query  directly inside your repository
+
+                    interface UserRespository extends JpaRepository(User, Long){
+
+                        	@Query("SELECT u FROM User u WHERE u.email = :email ")
+                        	User fetchUserByEmail(@Param("email") String email);
+
+                           @Query(name = "Select * from user where email =?", nativeQuery = true)
+	                        User fetchUserByEmail1(@Param("email") String email);
+                    } 
+
+
+               2.  Using Query methods from spring data jpa 
+                    - Query Methods in Spring data jpa, allows to generate db queries automatically based on "method names"
+
+                                - the "method names" should start with 
+                                    - findByXX
+                                    - findAllByXX
+                                    - readByXX
+                                    - queryByXX
+                                    - existsByXX
+                                    - countByXX
+                                    - deleteByX
+
+                                - operators supported in the method naming 
+
+                                    - equal (=)          - findByEmail(String email)
+                                    - not equals(!=)     - findByEmailNot(String email)
+                                    - Like (LIKE)        - findByEmailLike(String email)
+                                    - LIKE prefix%      - findByEmailStartingWith(String email)
+                                    - LIKE suffix%      - findByEmailEndingWith(String email) 
+                                                                  findAllByEmailEndingWithIn(List<String> email)
+                                    - >                 - findAllByAgeGreaterThan(int age)
+                                    - <                 - findAllByAgeLessThan(int age)
+                                    - between           - findAllByAgeBetween(int from, int to)
+                                    - IN                - findAllByAgeIn(List<Integer> ages)
+                                    - NOT IN            - findAllByAgeNotIn(List<Integer> ages)
+                                    - order by          - findAllByAgeOrderAsc(int age)
+
+                                - combine query methods using AND / OR 
+
+                                    and  - findByNameAndEmail(String name, String email)
+
+                                    or  - findByNameOrEmail(String name, String email)
+
+                    3. using QueryDSL
+
+
+
+                
+            **IMP: Entity Relationship 
+            -----------------------------------------------
+
+                - entity relationship defines how objects in java are mapped with the relational tables
+                - in jpa we use below annotations to define the relationships 
+
+                    1. OneToOne (1:1)   - One Entity is associated with exactly one other entity
+                    2. OneToMany (1:N)  - One entity is associated with multiple other entities 
+                    3. ManyToOne (N:1)  - many entities are associated with one entity
+                    4. ManyToMany (M:N) - multiple entities are associated with multiple other entities 
+
+
+                - Default Strategies to represent the relationship in the database 
+
+    Annotation          table relationship          fetch policy
+    @OneToOne           - JoinColumn                FetchType.EAGER
+
+
+            *IMP: OneToOne (Unidirectional)
+
+                class User {                            class Profile {
+
+                    int id;                                     int id;
+                    String name;                                String bio
+                    Strint email;                               ...
+
+                    @OneToOne
+                    Profile profile;
+
+                }                                       }
+
+
+                user table        FK                                profile table
+                id  name   email  profile_id                          id   bio    
+
+
+
+
+            *IMP: OneToMany and ManyToOne (BiDirectional)
+            ------------------------------------------
+                class Department {                          class Employee {
+
+                    id, name, ..                                id, name, salary, 
+
+                    @OneToMany                                  @ManyToOne
+                    List<Employee> employees;                   Department department;
+
+                }                                           }
+
+
+                - Unidirectional / BiDirectional
+
+
+
+
+                @OneToMany 
+                    - what strategy is being used to represent the relationship in the database
+                    - you should define appropriate cascade behavior 
+
+
+
 
 
     **Imp Terms / Concepts 
