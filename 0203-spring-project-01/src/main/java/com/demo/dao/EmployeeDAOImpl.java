@@ -1,9 +1,13 @@
 package com.demo.dao;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EmployeeDAOImpl {
+@Scope("prototype")
+public class EmployeeDAOImpl implements InitializingBean, DisposableBean {
 	
 	private String dbUrl;
 	private String username;
@@ -12,6 +16,13 @@ public class EmployeeDAOImpl {
 	public EmployeeDAOImpl() {
 		System.out.println("EmployeeDAO object is created, no-arg constructor");
 	}
+	
+	
+//	public void myOwnInitMethod() {
+//		//logic to validate the initialzation, 
+//		//have some custom initialization
+//		System.out.println("this is my own init method()");
+//	}
 
 	public EmployeeDAOImpl(String dbUrl, String username, String password) {
 		super();
@@ -48,6 +59,18 @@ public class EmployeeDAOImpl {
 		this.password = password;
 		System.out.println("setting password using setter method");
 
+	}
+
+
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("this is my custom initiatlization method");
+	}
+
+
+	public void destroy() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

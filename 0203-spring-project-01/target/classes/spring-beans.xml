@@ -4,6 +4,17 @@
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+
+	<bean id="empDao" 
+		class="com.demo.dao.EmployeeDAOImpl" 
+		init-method="myOwnInitMethod"
+		scope="prototype">
+		
+	</bean>
+
+
+
+
 	<!-- bean definitions here -->
 	<!-- <bean id="employeeDAO" scope="singleton" name="employeeDAO" class="com.demo.dao.EmployeeDAOImpl">
 

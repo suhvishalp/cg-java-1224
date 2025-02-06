@@ -2417,7 +2417,42 @@ Array
 
                         3. using Annotation-based Configuration
 
+                                @Component 
+                                    - Indicates that an annotated class is a "component". Such classes are considered as candidates for auto-detection when using annotation-based configuration and classpath scanning.
+
+
+                                @Respository 
+                                    - Indicates that an annotated class is a "component". Such classes are considered as candidates for auto-detection when using annotation-based configuration and classpath scanning.
+
+
+                                @Service 
+                                    - Indicates that an annotated class is a "component". Such classes are considered as candidates for auto-detection when using annotation-based configuration and classpath scanning.
+
+
+                                @Controller 
+                                    - Indicates that an annotated class is a "component". Such classes are considered as candidates for auto-detection when using annotation-based configuration and classpath scanning.
+
                 - Bean Life cycle 
+
+                        - Bean initialization 
+
+                            - interface InitializingBean
+                                - Interface to be implemented by beans that need to react once all their properties have been set by a container: for example, to perform custom initialization, or merely to check that all mandatory properties have been set.
+
+                            - a class can implement "InitializingBean" interface and implement it's method 
+                                public void afterPropertiesSet() throws Exception {
+		                            // TODO Auto-generated method stub
+                                    //logic for custom initialization or validation
+	                            }
+
+                        - Bean Disposal
+                            - interface DisposableBean
+                                - Interface to be implemented by beans that want to release resources on destruction
+
+                                    public void destroy() throws Exception {
+		                                // TODO Auto-generated method stub
+                                        //logic to release the resources you might have used in the progream
+	                                }
 
                 - Bean Scopes 
 
@@ -2427,6 +2462,7 @@ Array
 
                         - Prototype 
                             - creates new instance everytime we call the getBean() method
+                               
 
                         - Application 
 
@@ -2445,7 +2481,7 @@ Array
 
             4. Spring Data 
                 - provides easy integration with databases using spring data jpa, JDBC, MongoDB etc
-                - Spring Data JPa
+                - Spring Data JPA
                 - Spring Data MongoDB
                 - Spring Data Redis 
                 - Spring Data Elasticsearch
@@ -2469,7 +2505,65 @@ Array
 
             Spring Boot 
             ------------------
+                - simplifies the spring application with features like auto-configuration, embedded servers, production-ready features like Actuator etc.
             
+
+
+            Spring Data JPA
+            ----------------
+                
+
+                    - JPA 
+                        - Java Persistence API 
+                        - it is standard/specification for ORM tools 
+
+                    - JPA Providers 
+                        - ORM tools like Hibernate, OpenJPA, EclipseLink, MyBatis etc. who implements the JPA standards 
+
+                    - Spring Data JPA
+                        - it is a wrapper around JPA and JPA Provider
+                        - it provides "Repository Pattern" which is higher level abstraction for working with the databse 
+                        - instead of managing entity persistence, query execution, transaction management at your own, you can simply use the "Repository Pattern" which simplifies the 
+                        DB operations
+
+                        - it reduces the boilerplate code for entity management, query execution and transactions
+                        - it auto-generates query methods
+                        - it supports "QueryDSL" 
+                        - it comes with built-in support for pagination and sorting
+                        - better Transaction management
+
+
+
+                            interface Repository<T, ID>
+                                |-> marker interface
+                                |-> General purpose is to hold type information as well as being able to discover interfaces that extend this one during classpath scanning for easy Spring bean creation.
+                                |
+                                |
+                            interface CrudRepository<T, ID>
+                                |
+                                |- long count()
+                                |- void delete(T entity)
+                                |- void deleteAll()
+                                |- Iterable<T> findAll()
+                                |- Optional<T> findById(ID id)
+                                |- S save(S entity)
+                                |
+                            Interface ListCrudRepository<T,ID>
+                                |
+                                |-> List<T> findAll()
+                                |
+                            interface Interface PagingAndSortingRepository<T,ID>
+                                |
+                                |- Iterable<T> findAll(Sort sort)
+                                |- Page<T> findAll(Pageable pageable)
+                                |
+                                |
+                            Interface JpaRepository<T,ID>
+                                |
+                                |- S saveAndFlush(S entity)
+                                |- ListT> findAll(Example<S> example)
+                                |- List<T> findAll(Example<S> example, Sort sort)
+                                |
 
 
     **Imp Terms / Concepts 

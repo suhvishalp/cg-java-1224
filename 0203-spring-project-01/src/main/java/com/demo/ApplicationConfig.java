@@ -17,7 +17,8 @@ public class ApplicationConfig {
 //	public EmployeeDAOImpl createEmployeeDAOImpl() {
 //		//logic to create an object
 //		//..
-//		return new EmployeeDAOImpl("url", "username", "password");
+//		EmployeeDAOImpl empDao =  new EmployeeDAOImpl();
+//		empDao.myOwnInitMethod();
 //	}
 //	
 //	@Bean

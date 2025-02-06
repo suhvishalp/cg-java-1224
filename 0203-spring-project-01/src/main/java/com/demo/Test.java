@@ -14,12 +14,12 @@ public class Test {
 //		ApplicationContext context = new ClassPathXmlApplicationContext("spring-beans.xml");
 		
 		ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-
-		EmployeeServiceImpl empServiceImpl1 = context.getBean(EmployeeServiceImpl.class);
-		
-		EmployeeServiceImpl empServiceImpl2 = context.getBean(EmployeeServiceImpl.class);
-
-		EmployeeServiceImpl empServiceImpl3 = context.getBean(EmployeeServiceImpl.class);
+//
+//		EmployeeServiceImpl empServiceImpl1 = context.getBean(EmployeeServiceImpl.class);
+//		
+//		EmployeeServiceImpl empServiceImpl2 = context.getBean(EmployeeServiceImpl.class);
+//
+//		EmployeeServiceImpl empServiceImpl3 = context.getBean(EmployeeServiceImpl.class);
 
 	}
 

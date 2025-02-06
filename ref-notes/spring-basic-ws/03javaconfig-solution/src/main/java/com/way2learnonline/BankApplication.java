@@ -7,7 +7,12 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -30,51 +35,17 @@ import com.way2learnonline.service.BankServiceImpl;
 import com.way2learnonline.service.EmailService;
 import com.way2learnonline.service.EmailServiceImpl;
 
-@Configuration
-@ComponentScan
-@PropertySource("classpath:db.properties")
+@SpringBootApplication
 public class BankApplication {
 	
-	@Autowired
-	private DataSource dataSource;
-	
-	@Value("classpath:dbscripts.sql")
-	private Resource dbscript;
-	
-	@Autowired
-	private Environment env;
-
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 
-		ApplicationContext context = new AnnotationConfigApplicationContext(BankApplication.class);
-	
+		ConfigurableApplicationContext context =  SpringApplication.run(BankApplication.class);
+		
 		BankService bankService =  context.getBean(BankService.class);
 		bankService.transfer(1L, 2L, 5000);
 	
 	}
-	
-	@Bean
-	public DataSourceInitializer dataSourceInitializer(DataSource dataSource){
-		DataSourceInitializer initializer= new DataSourceInitializer();
-		initializer.setDataSource(dataSource);
-		initializer.setDatabasePopulator(databasePopulator());
-		return initializer;
-	}
-	
-	private DatabasePopulator databasePopulator() {
-	     ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-	    populator.addScript(dbscript);		   
-	    return populator;
-	}
-	
-	@Bean
-	public DataSource dataSource(){		
-		BasicDataSource dataSource= new BasicDataSource();
-		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
-		dataSource.setUsername("root");
-		dataSource.setPassword("SuhRoot123");
-		return dataSource;		
-	}
+
 }
