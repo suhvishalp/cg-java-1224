@@ -2628,15 +2628,13 @@ Array
                     4. ManyToMany (M:N) - multiple entities are associated with multiple other entities 
 
 
-                - Default Strategies to represent the relationship in the database 
-
-    Annotation          table relationship          fetch policy
-    @OneToOne           - JoinColumn                FetchType.EAGER
+               
 
 
             *IMP: OneToOne (Unidirectional)
+            --------------------------------------
 
-                class User {                            class Profile {
+                class User {  1---------------------->1 class Profile {
 
                     int id;                                     int id;
                     String name;                                String bio
@@ -2650,6 +2648,82 @@ Array
 
                 user table        FK                                profile table
                 id  name   email  profile_id                          id   bio    
+
+
+                 - Default Strategies to represent the relationship in the database 
+
+                    Annotation          table relationship          fetch policy            cascade
+                    @OneToOne           - JoinColumn                FetchType.EAGER         none
+
+
+
+            *IMP: OneToMany (Unidirectional) relationship 
+            -------------------------------------------------------
+
+            class Order {   1-------------------------->* class LineItem {
+
+                    int orderId;                                    int id;
+                    Date date;                                      String productName;
+                    int orderNumber;                                int quantity;
+                    String userName;                                double price;
+
+                    @OneToMany
+                    List<LineItem> items;
+
+                    double totalCost;
+
+            }                                                }
+
+        order table                                                 lineitem table 
+        ---------------                                             ----------------
+         orderId  date  ordernumber   totalcost  userName            id  productName  quantity  price order_id   
+
+            order_lineitem (jointable)
+            -------------
+            order_orderid       lineitem_id
+
+
+
+                Default strategies  OneToMany (Unidirectional) relationship 
+                ------------------------------------------------
+                 Annotation          table relationship          fetch policy           Cascade 
+                 @OneToManuy         @JoinTable                 FetchType.LAZY          none
+                                (**by default is uses a join table if no @joincolumn is specified)
+
+
+
+         *IMP: OneToMany - ManyToOne (BiDirectional) relationship 
+            -------------------------------------------------------
+
+            class Order {   1-------------------------->* class LineItem {
+
+                    int orderId;                                    int id;
+                    Date date;                                      String productName;
+                    int orderNumber;                                int quantity;
+                    String userName;                                double price;
+
+                    @OneToMany(mappedBy="order")                    @ManyToOne
+                    List<LineItem> items;                           Order order;
+
+                    double totalCost;
+
+            }                                                }
+
+        order table                                                 lineitem table 
+        ---------------                                             ----------------
+         orderId  date  ordernumber   totalcost  userName            id  productName  quantity  price   order_id 
+
+            order_lineitem (jointable)
+            -------------
+            order_orderid       lineitem_id
+
+
+
+                Default strategies  OneToMany (Unidirectional) relationship 
+                ------------------------------------------------
+                 Annotation          table relationship          fetch policy           Cascade 
+                 @OneToManuy         @JoinTable                 FetchType.LAZY          none
+                                (**by default is uses a join table if no @joincolumn is specified)
 
 
 
@@ -2674,6 +2748,140 @@ Array
                 @OneToMany 
                     - what strategy is being used to represent the relationship in the database
                     - you should define appropriate cascade behavior 
+
+
+                - Fetch Policty 
+                ----------------
+                    1. FetchType.LAZY 
+                        - the related resources/entities are not loaded fromt the database until it is actually accessed via getter methdos
+
+                    2. FetchType.EAGER 
+                        - loads the related resourecs/entities immediately when we fetch a resourse 
+
+                - Cascade Effects 
+                -----------------------
+                    - Cascade.ALL
+
+                    - Cascade.PERSIST 
+                        - when you persist the main entity (parent) any "new" (child) / related entities will be automatically persisted which are associated with the main entity (parent)
+
+                    - Cascade.REMOVE 
+
+                    - Cascade.MERGE
+
+                    - Cascade.REFRESH
+
+                    - Cascade.DETACH
+
+
+            - Spring Framework - spring core, spring data (spring data jpa), spring boot
+
+                EXPLORE: spring data jdbc, spring data mongoDB
+
+            
+            - Spring Web
+                - build web applciation s
+                - build RESTful Web Services / RESTful APIs
+
+            - Spring MVC (Model View Controller)
+                - helps to build "web applications" /RESTful Web Services using MVC pattern
+
+                    - Model - represents application data and business logic 
+
+                    - View - represents the UI layer, it is responsible to render the "view"
+                                along with the model data
+
+                    - Controller - Handles incoming HTTP Requests, interacts with the model, and 
+                            returns appropriate "view" along with the model "Data"
+
+
+            **IMP: 
+                - A web server is a system that stores and delivers web content to users over the internet.
+                - REF: https://www.baeldung.com/spring-template-engines
+
+
+            - Controller
+                - handles HTTP requests and returns RESPONSE
+                - Use @Controller annotation to define a controller class that returns a "view"
+
+                        - request handler / handler method
+                            - a method in the controller that receives a request and returns a response
+                            - this method is called when you send a specific type of request to a specific URL
+                            - to return a view: the request handler method must return name of the "view"
+
+                        - Controllers in Spring MVC are responsible for processing incoming HTTP requests, interacting with business logic, and returning the appropriate responses.
+                        - They are annotated with @Controller (for view-based responses) or @RestController (for REST APIs).
+                        - Controllers use mapping annotations (@GetMapping, @PostMapping, etc.) to define which methods handle specific HTTP requests.
+                        - Data binding is supported via annotations like @PathVariable, @RequestParam, and @ModelAttribute.
+                        - Controllers can handle form submissions and exceptions to create robust web applications.
+
+            - HTTP Request Types    
+                - GET 
+                - POST
+                - PUT
+                - PATCH 
+                - DELTE
+                - HEAD
+
+
+            - DispatcherServlet:
+                 DispatcherServlet is the front controller in the Spring MVC framework. It is responsible for intercepting incoming HTTP requests, routing them to the appropriate controllers, and returning the responses. In a Spring Boot application, much of the configuration of the DispatcherServlet and the overall Spring MVC infrastructure is handled automatically by the framework.
+
+                 - Front Controller Pattern:
+                    The DispatcherServlet acts as the central point that receives all incoming requests (according to its URL mapping in web.xml or via Spring Boot auto-configuration). It then dispatches these requests to the appropriate handlers (controllers).
+
+                 - Processing Flow:
+                    When a request arrives:
+                        1. Interception: The DispatcherServlet intercepts the request.
+                        2. Handler Mapping: It consults one or more HandlerMapping beans to determine which controller method should process the request.
+                        3. Handler Adapter: It uses a HandlerAdapter to invoke the determined controller method.
+                        4. Model and View: The controller returns a ModelAndView (or similar data in REST scenarios), which contains both the data (model) and the logical view name.
+                        5. View Resolution: A ViewResolver translates the view name into an actual view (for example, a Thymeleaf template), and the view is rendered.
+                        6. Response: The rendered view is sent back as the HTTP response.
+
+            - Model:
+                Data Carrier: Represents the data of the application. The model can be as simple as Java POJOs
+                Data Binding: Controllers add data to the model, which is then used by the view to generate dynamic content.
+
+            - Spring REST 
+            --------------------
+
+                    - Spring REST is the part of the Spring Framework that makes it easy to build "RESTful web services". Using Spring REST, you can expose your application's functionality via HTTP endpoints that "return data" (often in JSON or XML format) rather than rendering HTML pages. 
+                    
+                    - This is typically done using the @RestController annotation, which is a specialized version of @Controller that automatically adds the @ResponseBody behavior to all methods.
+
+
+                - RESTful Web Services
+                    - REST (Representational State Transfer) is a set of architectural principles defined by Roy Fielding in his doctoral dissertation. REST emphasizes a stateless, client-server communication model.
+
+                       **IMP - RESTful web services expose resources through URLs and allow clients to perform operations using standard HTTP methods.
+                        - They are stateless, ensuring that each request is self-contained.
+                        - They support multiple representations (JSON, XML, etc.) and are built on a client-server model, ensuring separation of concerns.
+                        - This architecture leads to simplicity, scalability, flexibility, and interoperability, making REST a popular choice for designing web services.
+
+                    - @RestController
+                        - @RestController annotation is used to create a controller that returns "data" 
+
+                    - RESTful Services:
+                        REST (Representational State Transfer) is an architectural style that uses HTTP methods explicitly (such as GET, POST, PUT, DELETE) to perform CRUD (Create, Read, Update, Delete) operations on resources. Resources are typically represented as JSON or XML data.
+
+                    - @RestController:
+                        This annotation is used to mark a class as a REST controller. It combines the functionality of @Controller and @ResponseBody, meaning that every method in the class returns data directly rather than rendering a view.
+
+                    - HTTP Method Mappings:
+                        Spring provides convenient annotations like:
+
+                        @GetMapping: Handles HTTP GET requests.
+                        @PostMapping: Handles HTTP POST requests.
+                        @PutMapping: Handles HTTP PUT requests.
+                        @DeleteMapping: Handles HTTP DELETE requests.
+                        
+                    - Data Binding:
+                        Spring REST uses annotations such as @RequestBody to bind incoming request JSON (or XML) data to Java objects, and @PathVariable or @RequestParam to extract values from the URL.
+
+                    - Response Handling:
+                        You can use ResponseEntity to have fine-grained control over HTTP response headers and status codes.
+
 
 
 

@@ -15,10 +15,9 @@ public class Application {
 	public static void main(String[] args) {
 	
 		ApplicationContext context =  SpringApplication.run(Application.class, args);
-	
-	
-		UserRepository userRepo =  context.getBean(UserRepository.class);
-		ProfileRepository profileRepo = context.getBean(ProfileRepository.class);
+
+//		UserRepository userRepo =  context.getBean(UserRepository.class);
+//		ProfileRepository profileRepo = context.getBean(ProfileRepository.class);
 	
 //		Profile profile = new Profile();
 //		profile.setBio("This is bio for user 2");

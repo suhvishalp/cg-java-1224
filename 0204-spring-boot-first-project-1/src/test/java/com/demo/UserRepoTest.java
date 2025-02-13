@@ -27,10 +27,10 @@ public class UserRepoTest {
 //		Profile profile = user.getProfile();
 //	}
 	
-	@Test
-	public void testDeleteUser() {
-		User user = userRepository.findById(1L).orElse(null);
-		userRepository.delete(user);
-	}
+//	@Test
+//	public void testDeleteUser() {
+//		User user = userRepository.findById(1L).orElse(null);
+//		userRepository.delete(user);
+//	}
 
 }
