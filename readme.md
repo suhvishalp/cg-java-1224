@@ -2912,3 +2912,220 @@ Udemy Course link
 
 
 
+
+
+
+    Web Basics
+    ------------------------------
+
+        - HTML 
+            - "what" contents you want to show on a webpage 
+            - define the structure of the web page
+
+        - CSS - Cascading style sheet 
+            - "how" content should appear on the webpage
+            - define 'style rules' for the webpages 
+
+        - Bootstrap 
+            - html+css+javascript library 
+            - it helps to develop responsive UI, provides customizable components like accordion, buttons, navbar
+
+        - JavaScript 
+            - scripting language for web browsers 
+            - javascript is an 'interpreted language'
+            - provides programming capabiltiies 
+                - form validation
+                - business logic
+                - ajax calls / http requests 
+                - show/hide elements programmatically
+                - control user interaction
+
+            - every browser has 'JS Engine' which is responsible to execute the JS code inside the browser
+
+                - chrome        - V8
+                - firefox       - spider monkey 
+                - IE            - chakra
+
+            - 1997, javascript was introduced 
+            - 1997, it was submitted to ECMA for standardization, ECMA then kept publishing various 'specifications' / 'standards' which every browser has to implement 
+
+            - when the browser implements these 'specifications' it is called 'ECMAScript' 
+
+            - 1997 - ES1
+
+            - 1998  - ES2
+
+            - 1999  - ES3
+
+            - 2009  - ES5
+
+            - 2015  - ES6 - introduced several modern featuers 
+                        - classes & objects 
+                        - arrow functions 
+                        - module system 
+                        - object destructuing 
+                        - promise API
+                        - ..
+                        - ..
+
+            - ES.....
+
+        - Javascript tools
+
+                - Babel
+                    - js pre-processor
+                    - it converts modern js code into legacy js 
+
+                - Webpack
+                    - js pre-processor
+                    - it converts modern js code into legacy js 
+                    - it is also a build tool, it can bundle several js files together 
+
+
+            var age = 12;           //Number
+
+            age = "twelve"          //String
+
+
+            function arithAdd(number1, number2){
+
+            }
+
+            arithAdd("one", "two");
+
+            **IMP: in javascript the datatypes are automatically determined based on the value stored in a variable
+
+
+        - TypeScript 
+            - it is a superset of javascript 
+            - it is an oject oriented as well as compiled language
+            - typescript code is compiled into javascript code before it executes in the browser
+            - typescript is typesafe language 
+
+                var age :number = 10;
+
+                let age :number = 34;
+
+                let name :string  = "vishal"
+
+                 function arithAdd(a :number, b :number){
+
+                 }
+
+            arithAdd("one", "two");
+
+
+        - JQuery 
+
+
+        - Angular / React / Vue
+
+
+
+
+        ReactJS
+        --------------
+            - ReactJs a javascript library that helps to develop UI for web applications 
+            - it uses component based architecture 
+
+
+            1. reactjs library 
+                - reactjs helps to build 'components'
+
+            2. react-dom library 
+                - react-dom library is responsible to render components on the browser
+
+                ReactDOM.render()
+
+            3. Component 
+                - a component is a basic building block, which "decribes the UI using JSX" for a particular part of the webpage
+                
+                - can encapsulate data and view together 
+
+                - in reactjs there are two ways to create a component 
+
+                    a. create a component using "javascript function"
+                        -  Function Based component 
+                        - 'stateless component'
+                            *IMP: after React v16.3 - we can store 'state' in functional components as well using the concept of 'hooks'
+
+                        - a component in react is a javascript function that returns JSX code to describe the UI
+
+                        function Course(){
+                            return (
+                                <div className='course-box'>
+                                    <h1>Core Java</h1>
+                                    <p>This is some course description</p>
+                                    <p>Instructor: Vishal Shah</p>
+                                    <p>Start Date: March 17, 2024</p>
+                                    <button>Enroll</button>
+                                </div>
+                            );
+                        }
+
+                        function App(){
+                            return (
+                                <div>
+                                    <Course />
+                                    <Course />
+                                </div>
+                            )
+                        }
+
+                    b. create a component using 'javascript class'
+                        - Class based component 
+                        - stateful component 
+                        - we can store the 'state' of a component or update the component's 'state' as required
+                        - class based components can have 'life cycle methods' which can be used to hook some code logic that executes during diff phases of the component 
+
+
+                        class MainContent extends React.Component {
+
+                            render(){
+                                return (
+                                    //jsx code to decribe the UI
+                                )
+                            }
+                        }
+
+
+            4. JSX 
+                - javascript xml
+                - it is used to describe the UI in react
+                - it is very similar to HTML
+
+            5. Babel  
+                - javascript pre-processor
+                - it converts the JSX code into it's equivalent JS Code
+
+                    <div>Helloworld</div>           //JSX Code
+
+                    React.createElement("div", null , "Helloworld")     //javascript code
+
+
+        - ReactJS Features 
+            - it uses the concept of "VirualDOM" to efficiently render the UI
+            - component reusability 
+            - reactjs is highly opiniated 
+
+        - how to create a react applications 
+             1. using CRA - 'create-react-app' 
+
+                    - 'create-react-app' is a CLI tool used to build a react application
+
+
+                    > npm install create-react-app --global
+
+                    > npx create-react-app my-first-project
+
+
+             2. using react frameworks 
+
+                    a. Next.js 
+
+                    b. Gatsby 
+
+                    c. TanStack Start (Beta): 
+
+                    d. RedwoodJS:
+
