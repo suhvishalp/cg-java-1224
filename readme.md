@@ -3046,7 +3046,7 @@ Udemy Course link
 
                     a. create a component using "javascript function"
                         -  Function Based component 
-                        - 'stateless component'
+                        - 'stateless component'   --->before v16.3
                             *IMP: after React v16.3 - we can store 'state' in functional components as well using the concept of 'hooks'
 
                         - a component in react is a javascript function that returns JSX code to describe the UI
@@ -3078,7 +3078,6 @@ Udemy Course link
                         - we can store the 'state' of a component or update the component's 'state' as required
                         - class based components can have 'life cycle methods' which can be used to hook some code logic that executes during diff phases of the component 
 
-
                         class MainContent extends React.Component {
 
                             render(){
@@ -3087,7 +3086,6 @@ Udemy Course link
                                 )
                             }
                         }
-
 
             4. JSX 
                 - javascript xml
@@ -3107,6 +3105,11 @@ Udemy Course link
             - it uses the concept of "VirualDOM" to efficiently render the UI
             - component reusability 
             - reactjs is highly opiniated 
+                - form handling 
+                - state handling 
+                - aysnc communication / ajax calls / http requests 
+                - material design 
+                - ...
 
         - how to create a react applications 
              1. using CRA - 'create-react-app' 
@@ -3122,6 +3125,7 @@ Udemy Course link
              2. using react frameworks 
 
                     a. Next.js 
+                        - Next.js is a framework for building web applications using React
 
                     b. Gatsby 
 
@@ -3129,3 +3133,71 @@ Udemy Course link
 
                     d. RedwoodJS:
 
+
+        **IMP: How the VDOM works
+            - React creates an initial VDOM that's a copy of the real DOM. 
+            - When a component's state changes, React updates the VDOM. 
+            - React compares the updated VDOM to the previous version. This process is called "diffing". 
+            - React updates only the changed components in the actual DOM. This process is called "reconciliation". 
+
+        **IMP: Benefits of the VDOM
+            - Faster re-rendering: Because the VDOM is in memory, updates are faster than updating the real DOM directly. 
+            - Efficient updates: The actual DOM is updated with minimal changes. 
+            - Declarative API: You tell React what state you want the UI to be in, and it makes sure the DOM matches that state. 
+
+        State
+        ---------
+            - a component can have 'state' 
+            - 'state' is a way to manage dynamic data within the component 
+            - 'state' can be used to store data that you might want to render on the page
+            - whenever the 'state' changes, React will re-render the component to reflect the updated values
+
+
+        **IMP: Type Inference in typescript 
+            - process in which it automatically determines the type of a variable, function, or expression based on its value or context.
+
+        **IMP: Object destructuring assignment 
+
+        **IMP: Array destructuring assignment 
+
+        **IMP: in javascript, functions are 'first-class objects'
+            - in javascript, 
+                - a function can be stored in a variable
+
+                        let arithAdd = () => {
+
+                        }
+                - a function can be passed as an argument to another function 
+
+                        someFunction(()=>{})
+
+                        someFunction(arithAdd)
+
+                - a function can also be returned as a value from another function
+
+
+        useState Hook
+        --------------------
+            - 'useState' is a hook, which lets you create 'state' in functional components 
+
+               const [stateVariable, setStateFunction] =   useState(initialValue);
+
+            - whenver the component is loaded, it calls the 'useState(initialValue)' which sets up the 'state' for this components with the initial value
+
+        useEffect Hook
+        ----------------------
+            - used to perform 'Side Effects' - any operation that affects something outside the scope of the function being executed 
+                - it is used to fetch data from API
+                - perform some actions during the lifecycle of the component 
+
+                useEffect(callback, [dependencies]?);
+
+                useEffect(()=>{
+
+                    //logic to perform the side effects, i.e. fetching data from api
+
+                    return ()=>{
+                        //optional
+                        //logic to perform some cleaup activities
+                    }
+                }, [dependencies])
