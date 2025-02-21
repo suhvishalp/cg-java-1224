@@ -1,7 +1,9 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 import MainContentFunctional from './components/MainContentFunctional';
+import CreateEmployeeForm from './components/CreateEmployeeForm';
 
 function App() {
   return (
@@ -14,9 +16,16 @@ function App() {
       </div>
 
       <div className="row">
-        <div className="col">
+        <div className="col-9">
           {/* <MainContent /> */}
-          <MainContentFunctional />
+          {/* <MainContentFunctional /> */}
+          
+          <BrowserRouter>
+            <Routes>
+              <Route path='/' element={ <CreateEmployeeForm /> } />
+              <Route path='/list' element={ <MainContentFunctional /> } />
+            </Routes>
+          </BrowserRouter>
         </div>
       </div>
 

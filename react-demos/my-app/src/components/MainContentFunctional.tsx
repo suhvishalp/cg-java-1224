@@ -40,11 +40,12 @@ const MainContentFunctional: React.FC = () => {
 
     return (
         <div>
-            <h1>This is Main Component</h1>
-            <h2>Count : {count}</h2>
+            <h1>Employee List:</h1>
+            <a href="/addemployee">Add a New Employee</a>
+            {/* <h2>Count : {count}</h2>
 
             <button onClick={()=>setCount(count+1)} className="btn btn-primary">Increment</button>
-            <hr />
+            <hr /> */}
 
             <table className="table">
                 <thead>
