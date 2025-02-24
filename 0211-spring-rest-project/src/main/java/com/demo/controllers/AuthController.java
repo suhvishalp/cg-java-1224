@@ -54,7 +54,7 @@ public class AuthController {
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.email);
         // Extract role from the UserDetails (we assume a single role).
-        String role = userDetails.getAuthorities().iterator().next().getAuthority().replace("ROLE_", "");
+        String role = userDetails.getAuthorities().iterator().next().getAuthority().replace("ROLE_", "EMPLOYEE");
         final String token = jwtUtil.generateToken(userDetails.getUsername(), role);
         return new AuthResponse(token);
     }
