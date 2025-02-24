@@ -19,6 +19,9 @@ public class Employee {
     private String name;
     private String email;
     private String city;
+    
+    private String role;		//to represent the role of the user
+    private String password;
 
     // Using BigDecimal for currency values is recommended for precision.
     private BigDecimal salary;
@@ -74,8 +77,26 @@ public class Employee {
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
+    
+    
 
-    @Override
+    public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
     public String toString() {
         return "Employee {" +
                "id=" + id +
